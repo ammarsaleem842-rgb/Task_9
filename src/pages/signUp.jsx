@@ -1,3 +1,5 @@
+import CustomerServices from "../Components/customerServices";
+import Footer from "../Components/footer";
 import NavBar from "../Components/navBar";
 import RegistrationHeader from "../Components/registrationHeader";
 import SignUpTextFields from "../Components/SignUpTextFields";
@@ -10,6 +12,8 @@ const SignUp = () => {
             <RegistrationHeader />
             <SignUpTextFields />
             <WhyChoseUs />
+            <CustomerServices />
+            <Footer />
         </>
     );
 };

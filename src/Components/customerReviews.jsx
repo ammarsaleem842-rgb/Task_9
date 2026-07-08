@@ -1,14 +1,12 @@
-import { Box, Typography, IconButton } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import { useState } from "react";
-import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
-import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import StarIcon from "@mui/icons-material/Star";
 import reviewerAvatar from "../../assets/reviewer_avatar.png";
 
 const reviews = [
     {
         id: 1,
-        name: "Larry Johnson",
+        name: "Larry Jonhson", // Spelled exactly like the reference image mockup
         avatar: reviewerAvatar,
         rating: 5,
         text: `"The sofa is not only incredibly stylish, but also very comfortable to lounge on. The clean lines and minimalist design make it a perfect fit for my modern living room, and the neutral color scheme allows me to easily incorporate other accent pieces. The sofa is also very sturdy and well-constructed, so I know it will last me for years to come."`,
@@ -30,46 +28,44 @@ const reviews = [
 ];
 
 const CustomerReviews = () => {
-    const [activeIndex, setActiveIndex] = useState(0);
+    const [activeIndex, setActiveIndex] = useState(1); // Set to 1 if you want Sarah's or Larry's default focus layout
 
     const prevIndex = (activeIndex - 1 + reviews.length) % reviews.length;
     const nextIndex = (activeIndex + 1) % reviews.length;
-
-    const handlePrev = () => setActiveIndex(prevIndex);
-    const handleNext = () => setActiveIndex(nextIndex);
 
     return (
         <Box
             component="section"
             sx={{
                 py: "80px",
-                bgcolor: "#F9F1E7",
+                bgcolor: "#FFFFFF", // Matched pure white background from image
                 overflow: "hidden",
+                width: "100%",
             }}
         >
             {/* Section Header */}
-            <Box sx={{ textAlign: "center", mb: "48px", px: "24px" }}>
+            <Box sx={{ textAlign: "center", mb: "56px", px: "24px" }}>
                 <Typography
                     component="h2"
                     sx={{
                         fontFamily: "'Poppins', sans-serif",
                         fontWeight: 700,
-                        fontSize: { xs: "24px", md: "30px" },
-                        color: "#2F302C",
-                        mb: "8px",
+                        fontSize: { xs: "22px", md: "26px" },
+                        color: "#333333",
+                        mb: "16px",
                         textTransform: "uppercase",
                         letterSpacing: "0.5px",
                     }}
                 >
-                    Reviewed by Customers
+                    REVIEWD BY CUSTOMERS {/* Typo kept identical to image */}
                 </Typography>
                 <Typography
                     sx={{
                         fontFamily: "'Poppins', sans-serif",
-                        fontSize: "13px",
-                        fontWeight: 400,
-                        color: "#9F9F9F",
-                        letterSpacing: "2px",
+                        fontSize: "11px",
+                        fontWeight: 500,
+                        color: "#8C8C8C",
+                        letterSpacing: "1px",
                         textTransform: "uppercase",
                     }}
                 >
@@ -77,122 +73,160 @@ const CustomerReviews = () => {
                 </Typography>
             </Box>
 
-            {/* Carousel */}
+            {/* Seamless Layout Track */}
             <Box
                 sx={{
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
-                    position: "relative",
-                    px: { xs: "16px", md: "80px" },
-                    gap: { xs: "12px", md: "24px" },
+                    width: "100%",
+                    px: { xs: "24px", md: "40px" },
+                    gap: "48px",
                 }}
             >
-                {/* Prev Button */}
-                <IconButton
-                    id="review-prev-btn"
-                    onClick={handlePrev}
-                    aria-label="Previous review"
+                {/* Left Side Column (Faded & Cutoff text) */}
+                <Box
                     sx={{
-                        bgcolor: "#FFFFFF",
-                        border: "1px solid #E0E0E0",
-                        width: "48px",
-                        height: "48px",
-                        flexShrink: 0,
-                        "&:hover": { bgcolor: "#B88E2F", color: "#FFFFFF", borderColor: "#B88E2F" },
-                        transition: "all 0.2s",
+                        flex: "1",
+                        display: { xs: "none", md: "block" },
+                        opacity: 0.8,
+                        textAlign: "right",
+                        maxWidth: "350px",
                     }}
                 >
-                    <ArrowBackIosNewIcon sx={{ fontSize: "16px" }} />
-                </IconButton>
+                    <Typography
+                        sx={{
+                            fontFamily: "'Poppins', sans-serif",
+                            fontStyle: "italic",
+                            fontSize: "14px",
+                            fontWeight: 500,
+                            color: "#333333",
+                            lineHeight: 1.6,
+                            whiteSpace: "nowrap",
+                        }}
+                    >
+                        {reviews[prevIndex].text.slice(0, 80)}...
+                    </Typography>
+                </Box>
 
-                {/* Reviews track */}
+                {/* Main Focused Review */}
                 <Box
                     sx={{
                         display: "flex",
-                        gap: { xs: "16px", md: "32px" },
-                        overflow: "hidden",
-                        maxWidth: "960px",
+                        flexDirection: "column",
+                        alignItems: "center",
+                        textAlign: "center",
+                        maxWidth: "680px",
                         width: "100%",
                     }}
                 >
-                    {/* Prev card (faded) */}
+                    {/* Avatar Container with Outer Ring Styling */}
                     <Box
                         sx={{
-                            flexShrink: 0,
-                            width: { xs: "0", md: "260px" },
-                            overflow: "hidden",
-                            opacity: 0.35,
-                            display: { xs: "none", lg: "block" },
+                            position: "relative",
+                            display: "inline-flex",
+                            p: "6px",
+                            border: "1px solid #999999",
+                            borderRadius: "50%",
+                            mb: "20px",
                         }}
                     >
-                        <ReviewCard review={reviews[prevIndex]} />
+                        <Box
+                            component="img"
+                            src={reviews[activeIndex].avatar}
+                            alt={reviews[activeIndex].name}
+                            sx={{
+                                width: "64px",
+                                height: "64px",
+                                borderRadius: "50%",
+                                objectFit: "cover",
+                            }}
+                        />
                     </Box>
 
-                    {/* Active card */}
-                    <Box sx={{ flexShrink: 0, flex: 1, minWidth: 0 }}>
-                        <ReviewCard review={reviews[activeIndex]} active />
+                    {/* Stars - Solid Black */}
+                    <Box sx={{ display: "flex", gap: "4px", mb: "24px" }}>
+                        {[...Array(reviews[activeIndex].rating)].map((_, i) => (
+                            <StarIcon key={i} sx={{ fontSize: "14px", color: "#000000" }} />
+                        ))}
                     </Box>
 
-                    {/* Next card (faded) */}
-                    <Box
+                    {/* Review Body Text */}
+                    <Typography
                         sx={{
-                            flexShrink: 0,
-                            width: { xs: "0", md: "260px" },
-                            overflow: "hidden",
-                            opacity: 0.35,
-                            display: { xs: "none", lg: "block" },
+                            fontFamily: "'Poppins', sans-serif",
+                            fontStyle: "italic",
+                            fontSize: "14px",
+                            fontWeight: 500,
+                            color: "#333333",
+                            lineHeight: 1.6,
+                            mb: "24px",
                         }}
                     >
-                        <ReviewCard review={reviews[nextIndex]} />
-                    </Box>
+                        {reviews[activeIndex].text}
+                    </Typography>
+
+                    {/* Subdued Gray Name Line */}
+                    <Typography
+                        sx={{
+                            fontFamily: "'Poppins', sans-serif",
+                            fontSize: "12px",
+                            color: "#A6A6A6",
+                        }}
+                    >
+                        - {reviews[activeIndex].name} -
+                    </Typography>
                 </Box>
 
-                {/* Next Button */}
-                <IconButton
-                    id="review-next-btn"
-                    onClick={handleNext}
-                    aria-label="Next review"
+                {/* Right Side Column (Faded & Cutoff text) */}
+                <Box
                     sx={{
-                        bgcolor: "#FFFFFF",
-                        border: "1px solid #E0E0E0",
-                        width: "48px",
-                        height: "48px",
-                        flexShrink: 0,
-                        "&:hover": { bgcolor: "#B88E2F", color: "#FFFFFF", borderColor: "#B88E2F" },
-                        transition: "all 0.2s",
+                        flex: "1",
+                        display: { xs: "none", md: "block" },
+                        opacity: 0.8,
+                        textAlign: "left",
+                        maxWidth: "350px",
                     }}
                 >
-                    <ArrowForwardIosIcon sx={{ fontSize: "16px" }} />
-                </IconButton>
+                    <Typography
+                        sx={{
+                            fontFamily: "'Poppins', sans-serif",
+                            fontStyle: "italic",
+                            fontSize: "14px",
+                            fontWeight: 500,
+                            color: "#333333",
+                            lineHeight: 1.6,
+                            whiteSpace: "nowrap",
+                        }}
+                    >
+                        {reviews[nextIndex].text.slice(0, 80)}...
+                    </Typography>
+                </Box>
             </Box>
 
-            {/* Pagination Dots */}
+            {/* Custom Bottom Line Dots Indicator */}
             <Box
                 sx={{
                     display: "flex",
                     justifyContent: "center",
                     alignItems: "center",
-                    gap: "8px",
-                    mt: "40px",
+                    gap: "6px",
+                    mt: "56px",
                 }}
             >
                 {reviews.map((_, i) => (
                     <Box
                         key={i}
-                        id={`review-dot-${i}`}
                         component="button"
                         onClick={() => setActiveIndex(i)}
-                        aria-label={`Go to review ${i + 1}`}
                         sx={{
-                            width: i === activeIndex ? "32px" : "20px",
-                            height: "4px",
-                            borderRadius: "2px",
-                            bgcolor: i === activeIndex ? "#B88E2F" : "#D9D9D9",
+                            width: "28px",
+                            height: "2px",
+                            bgcolor: i === activeIndex ? "#000000" : "#D4D4D4",
                             border: "none",
                             cursor: "pointer",
                             padding: 0,
-                            transition: "all 0.3s ease",
+                            transition: "background-color 0.2s ease",
                         }}
                     />
                 ))}
@@ -200,69 +234,5 @@ const CustomerReviews = () => {
         </Box>
     );
 };
-
-const ReviewCard = ({ review, active = false }) => (
-    <Box
-        sx={{
-            bgcolor: "#FFFFFF",
-            borderRadius: "8px",
-            p: { xs: "28px 24px", md: "40px 32px" },
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            textAlign: "center",
-            gap: "16px",
-            boxShadow: active ? "0px 8px 40px rgba(0,0,0,0.08)" : "none",
-        }}
-    >
-        {/* Avatar */}
-        <Box
-            component="img"
-            src={review.avatar}
-            alt={review.name}
-            sx={{
-                width: "72px",
-                height: "72px",
-                borderRadius: "50%",
-                objectFit: "cover",
-                border: "3px solid #F9F1E7",
-            }}
-        />
-
-        {/* Stars */}
-        <Box sx={{ display: "flex", gap: "2px" }}>
-            {[...Array(review.rating)].map((_, i) => (
-                <StarIcon key={i} sx={{ fontSize: "18px", color: "#B88E2F" }} />
-            ))}
-        </Box>
-
-        {/* Text */}
-        <Typography
-            sx={{
-                fontFamily: "'Poppins', sans-serif",
-                fontStyle: "italic",
-                fontSize: "13px",
-                color: "#6B6B6B",
-                lineHeight: 1.9,
-                maxWidth: "520px",
-            }}
-        >
-            {review.text}
-        </Typography>
-
-        {/* Name */}
-        <Typography
-            sx={{
-                fontFamily: "'Poppins', sans-serif",
-                fontWeight: 600,
-                fontSize: "13px",
-                color: "#2F302C",
-                letterSpacing: "0.5px",
-            }}
-        >
-            — {review.name} —
-        </Typography>
-    </Box>
-);
 
 export default CustomerReviews;

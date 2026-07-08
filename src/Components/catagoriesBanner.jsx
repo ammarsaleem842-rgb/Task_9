@@ -35,7 +35,6 @@ const CatagoriesBanner = () => {
             sx={{
                 py: "80px",
                 px: { xs: "24px", md: "60px", lg: "100px" },
-                bgcolor: "#F9F1E7",
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "center",
@@ -43,31 +42,7 @@ const CatagoriesBanner = () => {
             }}
         >
             {/* Section Header */}
-            <Box sx={{ textAlign: "center" }}>
-                <Typography
-                    sx={{
-                        fontFamily: "'Poppins', sans-serif",
-                        fontSize: "13px",
-                        fontWeight: 400,
-                        color: "#9F9F9F",
-                        letterSpacing: "1px",
-                    }}
-                >
-                    Browse The Range
-                </Typography>
-                <Typography
-                    component="h2"
-                    sx={{
-                        fontFamily: "'Poppins', sans-serif",
-                        fontWeight: 700,
-                        fontSize: { xs: "26px", md: "32px" },
-                        color: "#2F302C",
-                        mt: "8px",
-                    }}
-                >
-                    Our Products
-                </Typography>
-            </Box>
+
 
             {/* Cards Row */}
             <Box
@@ -93,10 +68,6 @@ const CatagoriesBanner = () => {
                         overflow: "hidden",
                         boxShadow: "0px 4px 20px rgba(0,0,0,0.04)",
                         transition: "transform 0.25s, box-shadow 0.25s",
-                        "&:hover": {
-                            transform: "translateY(-6px)",
-                            boxShadow: "0px 12px 32px rgba(0,0,0,0.10)",
-                        },
                     }}
                 >
                     {/* Image area */}
@@ -171,10 +142,6 @@ const CatagoriesBanner = () => {
                         overflow: "hidden",
                         boxShadow: "0px 4px 20px rgba(0,0,0,0.04)",
                         transition: "transform 0.25s, box-shadow 0.25s",
-                        "&:hover": {
-                            transform: "translateY(-6px)",
-                            boxShadow: "0px 12px 32px rgba(0,0,0,0.10)",
-                        },
                     }}
                 >
                     {/* Text area (top) */}
@@ -234,10 +201,6 @@ const CatagoriesBanner = () => {
                         overflow: "hidden",
                         boxShadow: "0px 4px 20px rgba(0,0,0,0.04)",
                         transition: "transform 0.25s, box-shadow 0.25s",
-                        "&:hover": {
-                            transform: "translateY(-6px)",
-                            boxShadow: "0px 12px 32px rgba(0,0,0,0.10)",
-                        },
                     }}
                 >
                     {/* Text area (top) */}

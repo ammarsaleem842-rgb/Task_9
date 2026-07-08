@@ -1,85 +1,91 @@
 import { Box, Typography } from "@mui/material";
-import aspen from "../../assets/AspenIcon.png";
-import cropHighlight from "../../assets/crop&highlightIcon.png";
-import net from "../../assets/NetIcon.png";
-import missi from "../../assets/missiIcon.png";
-import pepperMint from "../../assets/pepperMintIcon.png";
-import pixelLab from "../../assets/pixelLabIcon.png";
-
-const logos = [
-    { src: aspen, alt: "Aspen" },
-    { src: cropHighlight, alt: "Crop & Highlight" },
-    { src: net, alt: "Net" },
-    { src: missi, alt: "Missi" },
-    { src: pepperMint, alt: "PepperMint" },
-    { src: pixelLab, alt: "Pixel Lab" },
-];
-
 const TrustedBy = () => {
     return (
-        <Box
-            component="section"
-            sx={{
-                py: "64px",
-                px: { xs: "24px", md: "60px", lg: "100px" },
-                bgcolor: "#FFFFFF",
-            }}
-        >
-            {/* Heading */}
-            <Typography
-                component="h2"
-                sx={{
-                    fontFamily: "'Poppins', sans-serif",
-                    fontSize: { xs: "22px", md: "26px" },
-                    fontWeight: 700,
-                    color: "#2F302C",
-                    mb: "48px",
-                    textAlign: "center",
-                    textTransform: "uppercase",
-                    letterSpacing: "1px",
-                }}
-            >
-                Trusted By
-            </Typography>
-
-            {/* Logo Grid */}
+        <>
             <Box
                 sx={{
                     display: "flex",
-                    flexWrap: "wrap",
-                    justifyContent: "center",
+                    flexDirection: "column",
+                    justifyContent: "space-around",
                     alignItems: "center",
-                    gap: { xs: "24px", md: "48px", lg: "64px" },
                 }}
             >
-                {logos.map((logo) => (
-                    <Box
-                        key={logo.alt}
-                        sx={{
-                            display: "flex",
-                            alignItems: "center",
-                            justifyContent: "center",
-                            filter: "grayscale(100%)",
-                            opacity: 0.6,
-                            transition: "opacity 0.25s, filter 0.25s",
-                            "&:hover": { opacity: 1, filter: "grayscale(0%)" },
-                        }}
-                    >
-                        <Box
-                            component="img"
-                            src={logo.src}
-                            alt={logo.alt}
-                            sx={{
-                                height: { xs: "48px", md: "60px" },
-                                width: "auto",
-                                objectFit: "contain",
-                            }}
-                        />
-                    </Box>
-                ))}
+                <Typography
+                    sx={{
+                        fontWeight: "bolder",
+                        fontSize: "32px",
+                        lineHeight: "60px",
+                        letterSpacing: "0",
+                    }}
+                >
+                    TRUSTED BY
+                </Typography>
+                <Box sx={{ display: "flex", gap: "3em" }}>
+                    <img
+                        style={{ height: "150px", width: "150px" }}
+                        src="assets\AspenIcon.png"
+                        alt=""
+                    />
+                    <img
+                        style={{ height: "150px", width: "150px" }}
+                        src="assets\crop&highlightIcon.png"
+                        alt=""
+                    />
+                    <img
+                        style={{ height: "150px", width: "150px" }}
+                        src="assets\NetIcon.png"
+                        alt=""
+                    />
+                    <img
+                        style={{ height: "150px", width: "150px" }}
+                        src="assets\missiIcon.png"
+                        alt=""
+                    />
+                    <img
+                        style={{ height: "150px", width: "150px" }}
+                        src="assets\pepperMintIcon.png"
+                        alt=""
+                    />
+                    <img
+                        style={{ height: "150px", width: "150px" }}
+                        src="assets\pixelLabIcon.png"
+                        alt=""
+                    />
+                </Box>
+                <Box sx={{ display: "flex", gap: "3em" }}>
+                    <img
+                        style={{ height: "150px", width: "150px" }}
+                        src="assets\netIcon.png"
+                        alt=""
+                    />
+                    <img
+                        style={{ height: "150px", width: "150px" }}
+                        src="assets\pixelLabIcon.png"
+                        alt=""
+                    />
+                    <img
+                        style={{ height: "150px", width: "150px" }}
+                        src="assets\pepperMintIcon.png"
+                        alt=""
+                    />
+                    <img
+                        style={{ height: "150px", width: "150px" }}
+                        src="assets\missiIcon.png"
+                        alt=""
+                    />
+                    <img
+                        style={{ height: "150px", width: "150px" }}
+                        src="assets\aspenIcon.png"
+                        alt=""
+                    />
+                    <img
+                        style={{ height: "150px", width: "150px" }}
+                        src="assets\crop&highlightIcon.png"
+                        alt=""
+                    />
+                </Box>
             </Box>
-        </Box>
+        </>
     );
 };
-
 export default TrustedBy;

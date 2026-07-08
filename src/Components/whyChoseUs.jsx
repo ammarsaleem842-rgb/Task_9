@@ -87,20 +87,14 @@ const FeatureCard = ({ feature }) => (
             textAlign: "center",
             gap: "16px",
             p: "32px 24px",
-            borderRadius: "8px",
-            bgcolor: "#FFFFFF",
-            boxShadow: "0px 4px 24px rgba(0,0,0,0.05)",
             flex: "1 1 260px",
             maxWidth: { xs: "100%", sm: "320px" },
             transition: "transform 0.25s, box-shadow 0.25s",
-            "&:hover": {
-                transform: "translateY(-4px)",
-                boxShadow: "0px 12px 36px rgba(184,142,47,0.15)",
-            },
+
         }}
     >
         {/* Icon */}
-        <Box
+        < Box
             sx={{
                 width: "72px",
                 height: "72px",
@@ -112,7 +106,7 @@ const FeatureCard = ({ feature }) => (
             }}
         >
             {feature.icon}
-        </Box>
+        </Box >
 
         <Typography
             component="h3"
@@ -140,7 +134,7 @@ const FeatureCard = ({ feature }) => (
         >
             {feature.description}
         </Typography>
-    </Box>
+    </Box >
 );
 
 const WhyChoseUs = () => {
