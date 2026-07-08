@@ -1,5 +1,6 @@
 import { Box, TextField, InputAdornment } from "@mui/material"
 import SearchIcon from "@mui/icons-material/Search";
+import { Link } from "react-router-dom";
 
 const NavBar = () => {
 
@@ -114,8 +115,8 @@ const NavBar = () => {
                     display: 'flex',
                     gap: '20px'
                 }}>
-                    {listItems.map((item, index, value) => (
-                        <li key={index} ><a href="#" style={{ textDecoration: 'none', color: '#2F302C' }}>{item}</a></li>
+                    {listItems.map((item, index) => (
+                        <li key={index} ><Link to={item === "HOME" ? "/homepage" : "#"} style={{ textDecoration: 'none', color: '#2F302C' }}>{item}</Link></li>
                     ))}
                 </ul>
             </Box>
@@ -126,8 +127,8 @@ const NavBar = () => {
                     gap: '20px',
                     listStyle: 'none'
                 }}>
-                    <li><a href="#" a href="#" style={{ textDecoration: 'none', color: '#2F302C' }}>LOVE</a></li>
-                    <li><a href="#" a href="#" style={{ textDecoration: 'none', color: '#2F302C' }}>CART</a></li>
+                    <li><Link to="/homepage" style={{ textDecoration: 'none', color: '#2F302C' }}>LOVE</Link></li>
+                    <li><Link to="/homepage" style={{ textDecoration: 'none', color: '#2F302C' }}>CART</Link></li>
                 </ul>
             </Box>
 
