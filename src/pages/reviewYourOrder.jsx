@@ -24,7 +24,7 @@ const ReviewYourOrder = () => {
         <Box sx={{ bgcolor: "#FFFFFF", minHeight: "100vh" }}>
             <NavBar />
 
-            {/* Header Section */}
+            {}
             <Box sx={{ bgcolor: "#FFFFFF", py: { xs: 4, md: 6 }, px: { xs: 3, md: 6 }, textAlign: "center" }}>
                 <Typography component="h1" sx={{ fontFamily: "'Poppins', sans-serif", fontSize: { xs: "24px", md: "36px" }, fontWeight: 700, color: "#2F302C", textTransform: "uppercase", mb: 1 }}>
                     Review and Confirmation
@@ -34,10 +34,10 @@ const ReviewYourOrder = () => {
                 </Typography>
             </Box>
 
-            {/* Progress Steps */}
+            {}
             <Box sx={{ px: { xs: 3, md: 6, lg: 8 }, py: 6 }}>
                 <Box sx={{ position: "relative", display: "flex", justifyContent: "space-between", alignItems: "flex-start", mb: 6 }}>
-                    {/* Connecting Line */}
+                    {}
                     <Box sx={{
                         position: "absolute",
                         top: 20,
@@ -48,7 +48,7 @@ const ReviewYourOrder = () => {
                         zIndex: 0
                     }} />
 
-                    {/* Steps */}
+                    {}
                     {steps.map((step, index) => (
                         <Box key={step.label} sx={{
                             display: "flex",
@@ -58,7 +58,7 @@ const ReviewYourOrder = () => {
                             zIndex: 1,
                             textAlign: "center"
                         }}>
-                            {/* Circle Icon */}
+                            {}
                             <Box sx={{
                                 width: 48,
                                 height: 48,
@@ -74,7 +74,7 @@ const ReviewYourOrder = () => {
                             }}>
                                 {step.icon}
                             </Box>
-                            {/* Label and Description */}
+                            {}
                             <Typography sx={{
                                 fontFamily: "'Poppins', sans-serif",
                                 fontSize: "13px",
@@ -98,12 +98,12 @@ const ReviewYourOrder = () => {
                 </Box>
             </Box>
 
-            {/* Main Content */}
+            {}
             <Box sx={{ px: { xs: 3, md: 6, lg: 8 }, pb: 8 }}>
                 <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", lg: "1.5fr 1fr" }, gap: 4 }}>
-                    {/* Left Column - Shipping & Payment */}
+                    {}
                     <Box>
-                        {/* Shipping Information */}
+                        {}
                         <Box sx={{ mb: 5 }}>
                             <Typography sx={{
                                 fontFamily: "'Poppins', sans-serif",
@@ -124,7 +124,7 @@ const ReviewYourOrder = () => {
                                 Please check below finalize your order
                             </Typography>
 
-                            {/* Shipping Details Box */}
+                            {}
                             <Box sx={{
                                 bgcolor: "#2F302C",
                                 color: "#FFFFFF",
@@ -157,7 +157,7 @@ const ReviewYourOrder = () => {
                                 </Typography>
                             </Box>
 
-                            {/* Delivery Option */}
+                            {}
                             <Box sx={{
                                 bgcolor: "#2F302C",
                                 color: "#FFFFFF",
@@ -195,7 +195,7 @@ const ReviewYourOrder = () => {
                             </Box>
                         </Box>
 
-                        {/* Payment Method */}
+                        {}
                         <Box>
                             <Typography sx={{
                                 fontFamily: "'Poppins', sans-serif",
@@ -216,7 +216,7 @@ const ReviewYourOrder = () => {
                                 Please check below finalize your order
                             </Typography>
 
-                            {/* Credit Card */}
+                            {}
                             <Box sx={{
                                 bgcolor: "#F5F5F5",
                                 border: "1px solid #E0E0E0",
@@ -275,7 +275,7 @@ const ReviewYourOrder = () => {
                         </Box>
                     </Box>
 
-                    {/* Right Column - Order Summary */}
+                    {}
                     <Box sx={{ bgcolor: "#F9F9F9", p: 4, borderRadius: "4px", height: "fit-content" }}>
                         <Typography sx={{
                             fontFamily: "'Poppins', sans-serif",
@@ -288,7 +288,7 @@ const ReviewYourOrder = () => {
                             Your Order
                         </Typography>
 
-                        {/* Products List */}
+                        {}
                         <Box sx={{ display: "grid", gap: 2, mb: 3, maxHeight: "300px", overflowY: "auto" }}>
                             {cartItems.map((item) => (
                                 <Box key={item.id} sx={{
@@ -342,7 +342,7 @@ const ReviewYourOrder = () => {
 
                         <Divider sx={{ my: 2 }} />
 
-                        {/* Pricing Summary */}
+                        {}
                         <Box sx={{ mb: 3 }}>
                             <Box sx={{ display: "flex", justifyContent: "space-between", mb: 1.5 }}>
                                 <Typography sx={{
@@ -415,7 +415,7 @@ const ReviewYourOrder = () => {
 
                         <Divider sx={{ my: 2 }} />
 
-                        {/* Total */}
+                        {}
                         <Box sx={{ display: "flex", justifyContent: "space-between", mb: 3 }}>
                             <Typography sx={{
                                 fontFamily: "'Poppins', sans-serif",
@@ -435,7 +435,7 @@ const ReviewYourOrder = () => {
                             </Typography>
                         </Box>
 
-                        {/* Button */}
+                        {}
                         <Button
                             component={Link}
                             to="/tracking"

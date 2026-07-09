@@ -6,7 +6,7 @@ import reviewerAvatar from "../../assets/reviewer_avatar.png";
 const reviews = [
     {
         id: 1,
-        name: "Larry Jonhson", // Spelled exactly like the reference image mockup
+        name: "Larry Jonhson",
         avatar: reviewerAvatar,
         rating: 5,
         text: `"The sofa is not only incredibly stylish, but also very comfortable to lounge on. The clean lines and minimalist design make it a perfect fit for my modern living room, and the neutral color scheme allows me to easily incorporate other accent pieces. The sofa is also very sturdy and well-constructed, so I know it will last me for years to come."`,
@@ -28,8 +28,7 @@ const reviews = [
 ];
 
 const CustomerReviews = () => {
-    const [activeIndex, setActiveIndex] = useState(1); // Set to 1 if you want Sarah's or Larry's default focus layout
-
+    const [activeIndex, setActiveIndex] = useState(1);
     const prevIndex = (activeIndex - 1 + reviews.length) % reviews.length;
     const nextIndex = (activeIndex + 1) % reviews.length;
 
@@ -38,12 +37,11 @@ const CustomerReviews = () => {
             component="section"
             sx={{
                 py: "80px",
-                bgcolor: "#FFFFFF", // Matched pure white background from image
+                bgcolor: "#FFFFFF",
                 overflow: "hidden",
                 width: "100%",
             }}
         >
-            {/* Section Header */}
             <Box sx={{ textAlign: "center", mb: "56px", px: "24px" }}>
                 <Typography
                     component="h2"
@@ -72,8 +70,6 @@ const CustomerReviews = () => {
                     What our customers think about us?
                 </Typography>
             </Box>
-
-            {/* Seamless Layout Track */}
             <Box
                 sx={{
                     display: "flex",
@@ -84,7 +80,6 @@ const CustomerReviews = () => {
                     gap: "48px",
                 }}
             >
-                {/* Left Side Column (Faded & Cutoff text) */}
                 <Box
                     sx={{
                         flex: "1",
@@ -108,8 +103,6 @@ const CustomerReviews = () => {
                         {reviews[prevIndex].text.slice(0, 80)}...
                     </Typography>
                 </Box>
-
-                {/* Main Focused Review */}
                 <Box
                     sx={{
                         display: "flex",
@@ -120,7 +113,6 @@ const CustomerReviews = () => {
                         width: "100%",
                     }}
                 >
-                    {/* Avatar Container with Outer Ring Styling */}
                     <Box
                         sx={{
                             position: "relative",
@@ -143,15 +135,11 @@ const CustomerReviews = () => {
                             }}
                         />
                     </Box>
-
-                    {/* Stars - Solid Black */}
                     <Box sx={{ display: "flex", gap: "4px", mb: "24px" }}>
                         {[...Array(reviews[activeIndex].rating)].map((_, i) => (
                             <StarIcon key={i} sx={{ fontSize: "14px", color: "#000000" }} />
                         ))}
                     </Box>
-
-                    {/* Review Body Text */}
                     <Typography
                         sx={{
                             fontFamily: "'Poppins', sans-serif",
@@ -165,8 +153,6 @@ const CustomerReviews = () => {
                     >
                         {reviews[activeIndex].text}
                     </Typography>
-
-                    {/* Subdued Gray Name Line */}
                     <Typography
                         sx={{
                             fontFamily: "'Poppins', sans-serif",
@@ -177,8 +163,6 @@ const CustomerReviews = () => {
                         - {reviews[activeIndex].name} -
                     </Typography>
                 </Box>
-
-                {/* Right Side Column (Faded & Cutoff text) */}
                 <Box
                     sx={{
                         flex: "1",
@@ -203,8 +187,6 @@ const CustomerReviews = () => {
                     </Typography>
                 </Box>
             </Box>
-
-            {/* Custom Bottom Line Dots Indicator */}
             <Box
                 sx={{
                     display: "flex",

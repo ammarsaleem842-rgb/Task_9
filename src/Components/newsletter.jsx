@@ -16,7 +16,7 @@ const Newsletter = () => {
                 backgroundImage: "linear-gradient(135deg, #2F302C 0%, #3d3e3a 100%)",
             }}
         >
-            {/* Content */}
+            {}
             <Box sx={{ textAlign: "center", maxWidth: "600px" }}>
                 <Typography
                     sx={{
@@ -58,7 +58,7 @@ const Newsletter = () => {
                 </Typography>
             </Box>
 
-            {/* Subscribe Form */}
+            {}
             <Box
                 sx={{
                     display: "flex",

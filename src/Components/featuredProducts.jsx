@@ -11,8 +11,8 @@ const FeaturedProducts = () => {
     const { addToCart } = useCart();
     const [snackbar, setSnackbar] = useState({ open: false, message: "" });
 
-    const filteredProducts = selectedCategory === "ALL" 
-        ? products 
+    const filteredProducts = selectedCategory === "ALL"
+        ? products
         : products.filter(product => product.category === selectedCategory);
 
     const handleCategoryClick = (category) => {
@@ -90,8 +90,6 @@ const FeaturedProducts = () => {
                     ))}
                 </Box>
             </Box>
-
-            {/* Products Grid */}
             <Box
                 sx={{
                     display: "grid",
@@ -135,9 +133,9 @@ const FeaturedProducts = () => {
                             <img
                                 src={product.image}
                                 alt={product.name}
-                                style={{ 
-                                    width: "100%", 
-                                    height: "100%", 
+                                style={{
+                                    width: "100%",
+                                    height: "100%",
                                     objectFit: "cover",
                                     transition: "transform 0.3s",
                                 }}
@@ -145,9 +143,9 @@ const FeaturedProducts = () => {
                                 onMouseLeave={(e) => e.target.style.transform = "scale(1)"}
                             />
                         </Box>
-                        <Typography 
-                            sx={{ 
-                                fontWeight: 600, 
+                        <Typography
+                            sx={{
+                                fontWeight: 600,
                                 fontSize: "16px",
                                 color: "#2F302C",
                                 mb: "8px",
@@ -209,8 +207,6 @@ const FeaturedProducts = () => {
                     </Box>
                 ))}
             </Box>
-
-            {/* Snackbar for cart notifications */}
             <Snackbar
                 open={snackbar.open}
                 autoHideDuration={3000}
@@ -232,8 +228,6 @@ const FeaturedProducts = () => {
                     {snackbar.message}
                 </Alert>
             </Snackbar>
-
-            {/* View All Products Button */}
             <Box sx={{ display: "flex", justifyContent: "center", mt: "32px", mb: "64px" }}>
                 <Button
                     onClick={handleViewAll}

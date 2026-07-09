@@ -1,5 +1,4 @@
 import { Box, Typography } from "@mui/material";
-// import sofaImg from "../../assets/sofa.png";
 import plantImg from "../../assets/plant.jpg";
 import chairImg from "../../assets/chair.jpg";
 import stoolImg from "../../assets/stool.jpg";
@@ -25,7 +24,7 @@ const blogPosts = [
         id: 3,
         title: "\"Functionality Meets Style\" - The Perfect Combination for Today's Homes and Offices.",
         excerpt: "Modern furniture is a reflection of our evolving tastes and needs, combining both form and function to create pieces that are both aesthetically pleasing and practical. With its sleek...",
-        image: stoolImg, // Replace with your stool/third image asset
+        image: stoolImg,
         date: "20.04.2021 | 14:45",
         tags: ["Convenient", "Sleek Design", "Mordern"],
     },
@@ -45,7 +44,6 @@ const Blog = () => {
                 bgcolor: "#FFFFFF",
             }}
         >
-            {/* Section Header */}
             <Box sx={{ textAlign: "center" }}>
                 <Typography
                     component="h2"
@@ -74,8 +72,6 @@ const Blog = () => {
                     What we think about interior design?
                 </Typography>
             </Box>
-
-            {/* Blog Posts Grid */}
             <Box
                 sx={{
                     display: "grid",
@@ -94,11 +90,10 @@ const Blog = () => {
                             bgcolor: "#FFFFFF",
                         }}
                     >
-                        {/* Image Container - Full Bleed / Aspect Ratio Square */}
                         <Box
                             sx={{
                                 width: "100%",
-                                paddingTop: "100%", // Forces 1:1 Aspect Ratio like the design
+                                paddingTop: "100%",
                                 position: "relative",
                                 overflow: "hidden",
                                 mb: "20px",
@@ -114,14 +109,11 @@ const Blog = () => {
                                     left: 0,
                                     width: "100%",
                                     height: "100%",
-                                    objectFit: "cover", // Covers the container completely
+                                    objectFit: "cover",
                                 }}
                             />
                         </Box>
-
-                        {/* Content */}
                         <Box sx={{ display: "flex", flexDirection: "column", gap: "12px" }}>
-                            {/* Date / Time Meta */}
                             <Typography
                                 sx={{
                                     fontFamily: "'Poppins', sans-serif",
@@ -131,8 +123,6 @@ const Blog = () => {
                             >
                                 {post.date}
                             </Typography>
-
-                            {/* Title */}
                             <Typography
                                 component="h3"
                                 sx={{
@@ -145,8 +135,6 @@ const Blog = () => {
                             >
                                 {post.title}
                             </Typography>
-
-                            {/* Excerpt */}
                             <Typography
                                 sx={{
                                     fontFamily: "'Poppins', sans-serif",
@@ -158,8 +146,6 @@ const Blog = () => {
                             >
                                 {post.excerpt}
                             </Typography>
-
-                            {/* Inline Tags */}
                             <Box sx={{ display: "flex", flexWrap: "wrap", gap: "8px" }}>
                                 {post.tags.map((tag, idx) => (
                                     <Box

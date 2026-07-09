@@ -15,8 +15,8 @@ const timeline = [
 
 const Tracking = () => {
     const { cartItems, cartTotal } = useCart();
-    const shipping = 0; // screenshot shows shipping blank, set 0 for clarity
-    const discount = Math.round(cartTotal * 0.1 * 100) / 100; // 10% discount
+    const shipping = 0;
+    const discount = Math.round(cartTotal * 0.1 * 100) / 100;
     const total = Math.max(0, cartTotal + shipping - discount);
 
     return (
@@ -33,7 +33,6 @@ const Tracking = () => {
                     </Typography>
 
                     <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", lg: "2fr 1fr" }, gap: 4 }}>
-                        {/* Left: Timeline */}
                         <Box>
                             <Typography sx={{ fontFamily: "'Poppins', sans-serif", fontSize: 16, fontWeight: 700, color: "#2F302C", mb: 1 }}>SHIPPING IN</Typography>
                             <Typography sx={{ fontFamily: "'Poppins', sans-serif", fontSize: 13, color: "#9F9F9F", mb: 3 }}>Will sent to 2972 Westheimer Rd. Santa Ana, Illinois 85486.</Typography>
@@ -41,7 +40,6 @@ const Tracking = () => {
                             <Box sx={{ display: "flex", gap: 3 }}>
                                 <Box sx={{ width: 40, display: "flex", justifyContent: "center" }}>
                                     <Box sx={{ position: "relative", width: 2, bgcolor: "transparent" }}>
-                                        {/* vertical line created by spacing between dots */}
                                     </Box>
                                 </Box>
 
@@ -72,8 +70,6 @@ const Tracking = () => {
                                 </Box>
                             </Box>
                         </Box>
-
-                        {/* Right: Order summary */}
                         <Box>
                             <Typography sx={{ fontFamily: "'Poppins', sans-serif", fontSize: 16, fontWeight: 700, color: "#2F302C", mb: 1 }}>YOUR ORDER</Typography>
                             <Typography sx={{ fontFamily: "'Poppins', sans-serif", fontSize: 13, color: "#9F9F9F", mb: 2 }}>Review all the products you want to buy</Typography>

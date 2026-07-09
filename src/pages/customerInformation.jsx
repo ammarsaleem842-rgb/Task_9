@@ -35,13 +35,13 @@ const CustomerInformation = () => {
         { label: "SHIPPING & PAYMENT" },
         { label: "REVIEW" },
     ];
-    const activeIndex = 2; // show Shipping & Payment as active/third step
+    const activeIndex = 2;
 
     return (
         <Box sx={{ bgcolor: "#FFFFFF", minHeight: "100vh" }}>
             <NavBar />
 
-            {/* Header */}
+            {}
             <Box sx={{ bgcolor: "#FFFFFF", py: { xs: 4, md: 6 }, px: { xs: 3, md: 6 }, textAlign: "center" }}>
                 <Typography component="h1" sx={{ fontFamily: "'Poppins', sans-serif", fontSize: { xs: "24px", md: "36px" }, fontWeight: 700, color: "#2F302C", textTransform: "uppercase", mb: 1 }}>
                     Shipping & Payment
@@ -51,43 +51,43 @@ const CustomerInformation = () => {
                 </Typography>
             </Box>
 
-            {/* Progress Steps */}
+            {}
             <Box sx={{ px: { xs: 3, md: 6, lg: 8 }, py: 5 }}>
-                    <Box sx={{ position: 'relative', display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 6 }}>
-                        {/* Base Line */}
-                        <Box sx={{ position: 'absolute', top: 20, left: '6%', right: '6%', height: '2px', bgcolor: '#E9E9E9', zIndex: 0 }} />
-                        {/* Filled Line */}
-                        <Box sx={{ position: 'absolute', top: 20, left: '6%', height: '2px', bgcolor: '#2F302C', width: `${(activeIndex/(steps.length-1))*100}%`, zIndex: 1 }} />
+                <Box sx={{ position: 'relative', display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 6 }}>
+                    {}
+                    <Box sx={{ position: 'absolute', top: 20, left: '6%', right: '6%', height: '2px', bgcolor: '#E9E9E9', zIndex: 0 }} />
+                    {}
+                    <Box sx={{ position: 'absolute', top: 20, left: '6%', height: '2px', bgcolor: '#2F302C', width: `${(activeIndex / (steps.length - 1)) * 100}%`, zIndex: 1 }} />
 
-                        {steps.map((step, index) => {
-                            const state = index < activeIndex ? 'done' : index === activeIndex ? 'active' : 'future';
-                            return (
-                                <Box key={step.label} sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', flex: 1, zIndex: 2, textAlign: 'center' }}>
-                                    <Box sx={{ mb: 1.5 }}>
-                                        {state === 'done' && (
-                                            <Box sx={{ width: 44, height: 44, borderRadius: '50%', bgcolor: '#2F302C', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontWeight: 700 }}>{index + 1}</Box>
-                                        )}
-                                        {state === 'active' && (
-                                            <Box sx={{ width: 44, height: 44, borderRadius: '50%', border: '2px solid #2F302C', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                                                <Box sx={{ width: 12, height: 12, borderRadius: '50%', bgcolor: '#2F302C' }} />
-                                            </Box>
-                                        )}
-                                        {state === 'future' && (
-                                            <Box sx={{ width: 44, height: 44, borderRadius: '50%', bgcolor: '#F5F5F5' }} />
-                                        )}
-                                    </Box>
-                                    <Typography sx={{ fontFamily: "'Poppins', sans-serif", fontSize: '11px', fontWeight: 600, color: '#2F302C', textTransform: 'uppercase' }}>{step.label}</Typography>
-                                    <Typography sx={{ fontSize: 11, color: '#9F9F9F', maxWidth: 140 }}>{index === 0 ? 'Review all your product and edit the number.' : index === 1 ? 'Add your name, phone number and address.' : index === 2 ? 'With many payment method, included yours.' : 'View all your information before the confirmation.'}</Typography>
+                    {steps.map((step, index) => {
+                        const state = index < activeIndex ? 'done' : index === activeIndex ? 'active' : 'future';
+                        return (
+                            <Box key={step.label} sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', flex: 1, zIndex: 2, textAlign: 'center' }}>
+                                <Box sx={{ mb: 1.5 }}>
+                                    {state === 'done' && (
+                                        <Box sx={{ width: 44, height: 44, borderRadius: '50%', bgcolor: '#2F302C', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontWeight: 700 }}>{index + 1}</Box>
+                                    )}
+                                    {state === 'active' && (
+                                        <Box sx={{ width: 44, height: 44, borderRadius: '50%', border: '2px solid #2F302C', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                                            <Box sx={{ width: 12, height: 12, borderRadius: '50%', bgcolor: '#2F302C' }} />
+                                        </Box>
+                                    )}
+                                    {state === 'future' && (
+                                        <Box sx={{ width: 44, height: 44, borderRadius: '50%', bgcolor: '#F5F5F5' }} />
+                                    )}
                                 </Box>
-                            );
-                        })}
-                    </Box>
+                                <Typography sx={{ fontFamily: "'Poppins', sans-serif", fontSize: '11px', fontWeight: 600, color: '#2F302C', textTransform: 'uppercase' }}>{step.label}</Typography>
+                                <Typography sx={{ fontSize: 11, color: '#9F9F9F', maxWidth: 140 }}>{index === 0 ? 'Review all your product and edit the number.' : index === 1 ? 'Add your name, phone number and address.' : index === 2 ? 'With many payment method, included yours.' : 'View all your information before the confirmation.'}</Typography>
+                            </Box>
+                        );
+                    })}
+                </Box>
             </Box>
 
-            {/* Main Content */}
+            {}
             <Box sx={{ px: { xs: 3, md: 6, lg: 8 }, pb: 8 }}>
                 <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", lg: "1.5fr 1fr" }, gap: 4 }}>
-                    {/* Left Column - Form */}
+                    {}
                     <Box>
                         <Typography sx={{
                             fontFamily: "'Poppins', sans-serif",
@@ -109,31 +109,31 @@ const CustomerInformation = () => {
                         </Typography>
 
                         <Box component="form" sx={{ display: "grid", gap: 2 }}>
-                            {/* First Name / Last Name */}
+                            {}
                             <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", sm: "1fr 1fr" }, gap: 2 }}>
                                 <TextField placeholder="Your first name" variant="standard" sx={inputStyles} />
                                 <TextField placeholder="Your last name" variant="standard" sx={inputStyles} />
                             </Box>
 
-                            {/* Email / Phone */}
+                            {}
                             <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", sm: "1fr 1fr" }, gap: 2 }}>
                                 <TextField placeholder="Your email" variant="standard" sx={inputStyles} />
                                 <TextField placeholder="Phone number" variant="standard" sx={inputStyles} />
                             </Box>
 
-                            {/* Country / City / ZIP */}
+                            {}
                             <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", sm: "1fr 1fr 1fr" }, gap: 2 }}>
                                 <TextField placeholder="Country" variant="standard" sx={inputStyles} />
                                 <TextField placeholder="City" variant="standard" sx={inputStyles} />
                                 <TextField placeholder="ZIP Code" variant="standard" sx={inputStyles} />
                             </Box>
 
-                            {/* Address */}
+                            {}
                             <TextField placeholder="Address details" variant="standard" sx={inputStyles} />
                         </Box>
                     </Box>
 
-                    {/* Right Column - Order Summary */}
+                    {}
                     <Box sx={{ bgcolor: "#FFFFFF", p: 3, height: "fit-content", borderLeft: '1px solid #EAEAEA', pl: { xs: 0, lg: 6 } }}>
                         <Typography sx={{
                             fontFamily: "'Poppins', sans-serif",
@@ -146,7 +146,7 @@ const CustomerInformation = () => {
                             Your Order
                         </Typography>
 
-                        {/* Products */}
+                        {}
                         <Box sx={{ display: "grid", gap: 2, mb: 3, maxHeight: "300px", overflowY: "auto" }}>
                             {cartItems.map((item) => (
                                 <Box key={item.id} sx={{
@@ -200,7 +200,7 @@ const CustomerInformation = () => {
 
                         <Divider sx={{ my: 2 }} />
 
-                        {/* Pricing */}
+                        {}
                         <Box sx={{ mb: 2.5 }}>
                             <Box sx={{ display: "flex", justifyContent: "space-between", mb: 1.5 }}>
                                 <Typography sx={{
@@ -273,7 +273,7 @@ const CustomerInformation = () => {
 
                         <Divider sx={{ my: 2 }} />
 
-                        {/* Total */}
+                        {}
                         <Box sx={{ display: "flex", justifyContent: "space-between", mb: 3 }}>
                             <Typography sx={{
                                 fontFamily: "'Poppins', sans-serif",
@@ -293,7 +293,7 @@ const CustomerInformation = () => {
                             </Typography>
                         </Box>
 
-                        {/* Button */}
+                        {}
                         <Button
                             component={Link}
                             to="/shipping"
@@ -318,7 +318,7 @@ const CustomerInformation = () => {
                 </Box>
             </Box>
 
-            {/* Why Choose Us Section */}
+            {}
             <WhyChoseUs />
 
             <Footer />

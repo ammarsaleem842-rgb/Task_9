@@ -73,7 +73,6 @@ const AddProductModal = ({ open, onClose, onAddProduct }) => {
     return (
         <Modal open={open} onClose={handleClose}>
             <Box sx={modalStyle}>
-                {/* Header */}
                 <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", mb: "28px" }}>
                     <Typography
                         sx={{
@@ -92,7 +91,6 @@ const AddProductModal = ({ open, onClose, onAddProduct }) => {
                     </IconButton>
                 </Box>
 
-                {/* Image Upload */}
                 <Box sx={{ mb: "24px" }}>
                     <Typography
                         sx={{
@@ -194,8 +192,6 @@ const AddProductModal = ({ open, onClose, onAddProduct }) => {
                         </Box>
                     )}
                 </Box>
-
-                {/* Product Name */}
                 <Box sx={{ mb: "20px" }}>
                     <Typography
                         sx={{
@@ -238,8 +234,6 @@ const AddProductModal = ({ open, onClose, onAddProduct }) => {
                         }}
                     />
                 </Box>
-
-                {/* Product Price */}
                 <Box sx={{ mb: "32px" }}>
                     <Typography
                         sx={{
@@ -284,8 +278,6 @@ const AddProductModal = ({ open, onClose, onAddProduct }) => {
                         }}
                     />
                 </Box>
-
-                {/* Add Button */}
                 <Button
                     fullWidth
                     variant="contained"

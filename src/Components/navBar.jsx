@@ -37,7 +37,7 @@ const NavBar = () => {
             top: 0,
             zIndex: 1000,
         }}>
-            {/* Desktop Navigation */}
+            {}
             <Box sx={{
                 display: { xs: 'none', md: 'flex' },
                 height: '80px',
@@ -47,7 +47,7 @@ const NavBar = () => {
                 mx: 'auto',
                 fontFamily: "'Poppins', sans-serif",
             }}>
-                {/* Logo */}
+                {}
                 <svg width="200" height="42" viewBox="0 0 200 42" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M54.771 13.8154H62.421V17.43H54.771V13.8154ZM55.1026 23.1H50.4131V6.5625H63.4157V10.1771H55.1026V23.1Z" fill="#2F302C" />
                     <path d="M74.68 23.4307C72.2326 23.4307 70.3221 22.7614 68.9484 21.4226C67.5747 20.0839 66.8879 18.186 66.8879 15.729V6.5625H71.5773V15.5872C71.5773 17.0047 71.8536 18.0206 72.4063 18.6349C72.9747 19.2491 73.7484 19.5562 74.7273 19.5562C75.7063 19.5562 76.4721 19.2491 77.0247 18.6349C77.5773 18.0206 77.8536 17.0047 77.8536 15.5872V6.5625H82.4721V15.729C82.4721 18.186 81.7852 20.0839 80.4115 21.4226C79.0379 22.7614 77.1273 23.4307 74.68 23.4307Z" fill="#2F302C" />
@@ -101,7 +101,7 @@ const NavBar = () => {
                 </svg>
 
 
-                {/* Navigation Links */}
+                {}
                 <TextField
                     variant="standard"
                     placeholder="Search..."
@@ -166,7 +166,7 @@ const NavBar = () => {
                     </ul>
                 </Box>
 
-                {/* Icons */}
+                {}
                 <Box sx={{ display: 'flex', gap: '20px', alignItems: 'center' }}>
 
                     <Box sx={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
@@ -211,7 +211,7 @@ const NavBar = () => {
                 </Box>
             </Box>
 
-            {/* Mobile Navigation */}
+            {}
             <Box sx={{
                 display: { xs: 'flex', md: 'none' },
                 flexDirection: 'column',
@@ -257,7 +257,7 @@ const NavBar = () => {
                     </Box>
                 </Box>
 
-                {/* Mobile Menu */}
+                {}
                 {mobileMenuOpen && (
                     <Box sx={{
                         display: 'flex',

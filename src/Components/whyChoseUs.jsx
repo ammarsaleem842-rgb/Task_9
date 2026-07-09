@@ -93,7 +93,7 @@ const FeatureCard = ({ feature }) => (
 
         }}
     >
-        {/* Icon */}
+        {}
         < Box
             sx={{
                 width: "72px",
@@ -151,7 +151,7 @@ const WhyChoseUs = () => {
                 gap: "56px",
             }}
         >
-            {/* Section Header */}
+            {}
             <Box sx={{ textAlign: "center" }}>
                 <Typography
                     sx={{
@@ -180,7 +180,7 @@ const WhyChoseUs = () => {
                 </Typography>
             </Box>
 
-            {/* Feature Grid */}
+            {}
             <Box
                 sx={{
                     display: "flex",

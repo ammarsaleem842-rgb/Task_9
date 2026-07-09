@@ -23,7 +23,7 @@ const SearchResultCard = ({ product }) => {
                 },
             }}
         >
-            {/* Image Container */}
+            {}
             <Box
                 sx={{
                     height: "220px",
@@ -46,7 +46,7 @@ const SearchResultCard = ({ product }) => {
                 />
             </Box>
 
-            {/* Content */}
+            {}
             <Box sx={{ p: "20px" }}>
                 <Typography
                     sx={{

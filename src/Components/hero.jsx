@@ -1,23 +1,22 @@
 import React from 'react';
 import { Box, Typography, Divider } from '@mui/material';
-import heroBg from "../../assets/hero.jpg"; // Updated with clean forward slashes
+import heroBg from "../../assets/hero.jpg";
 
 const Hero = () => {
     return (
         <Box
             sx={{
                 width: '100%',
-                height: { xs: 'auto', md: '560px' }, // Matches the deep aspect ratio of the banner
+                height: { xs: 'auto', md: '560px' },
                 minHeight: { xs: '400px', md: '560px' },
                 backgroundImage: `url(${heroBg})`,
                 backgroundSize: 'cover',
-                backgroundPosition: 'center', // Centers the entire room set frame
+                backgroundPosition: 'center',
                 backgroundRepeat: 'no-repeat',
                 display: 'flex',
-                alignItems: 'center', // Centers text box vertically
+                alignItems: 'center',
                 justifyContent: 'flex-start',
                 boxSizing: 'border-box',
-                // Precise text section padding constraints matching the mockup composition split
                 paddingLeft: { xs: '8%', sm: '48%', md: '53%', lg: '54%' },
                 paddingRight: { xs: '8%', sm: '5%' },
                 py: { xs: 8, sm: 0 },
@@ -33,7 +32,6 @@ const Hero = () => {
                     width: '100%'
                 }}
             >
-                {/* Top Kicker Text */}
                 <Typography
                     variant="caption"
                     sx={{
@@ -48,17 +46,15 @@ const Hero = () => {
                 >
                     Welcome To Our
                 </Typography>
-
-                {/* Main Heading */}
                 <Typography
                     component="h1"
                     sx={{
                         fontFamily: '"Montserrat", sans-serif',
                         fontSize: { xs: '2.2rem', sm: '3rem', md: '4.2rem', lg: '4.6rem' },
                         fontWeight: 800,
-                        lineHeight: 0.95, // Tight compression matching design precisely
+                        lineHeight: 0.95,
                         letterSpacing: '0.02em',
-                        color: '#2B2B2B', // Soft matte charcoal black
+                        color: '#2B2B2B',
                         textTransform: 'uppercase',
                     }}
                 >
@@ -67,15 +63,13 @@ const Hero = () => {
                         component="span"
                         sx={{
                             display: 'block',
-                            color: '#525252', // Slightly softer grey treatment on second word
+                            color: '#525252',
                             fontWeight: 700
                         }}
                     >
                         Gallery
                     </Box>
                 </Typography>
-
-                {/* Accent Line Divider */}
                 <Divider
                     sx={{
                         width: '210px',
@@ -85,8 +79,6 @@ const Hero = () => {
                         mb: 3,
                     }}
                 />
-
-                {/* Sub-heading */}
                 <Typography
                     variant="subtitle2"
                     sx={{
@@ -101,15 +93,13 @@ const Hero = () => {
                 >
                     Browse Our Selections
                 </Typography>
-
-                {/* Description Paragraph */}
                 <Typography
                     variant="body2"
                     sx={{
                         fontFamily: '"Montserrat", "Helvetica", sans-serif',
                         fontSize: { xs: '0.7rem', sm: '0.75rem', md: '0.78rem' },
                         fontWeight: 500,
-                        color: '#9A9A9A', // High-key muted gray matching the description text
+                        color: '#9A9A9A',
                         lineHeight: 1.5,
                         maxWidth: '380px',
                         letterSpacing: '0.01em'

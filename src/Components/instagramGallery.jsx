@@ -27,7 +27,7 @@ const InstagramGallery = () => {
                 bgcolor: "#F9F9F9",
             }}
         >
-            {/* Section Header */}
+            {}
             <Box sx={{ textAlign: "center" }}>
                 <Typography
                     sx={{
@@ -67,7 +67,7 @@ const InstagramGallery = () => {
                 </Typography>
             </Box>
 
-            {/* Gallery Grid */}
+            {}
             <Box
                 sx={{
                     display: "grid",
@@ -111,7 +111,7 @@ const InstagramGallery = () => {
                                 objectFit: "contain",
                             }}
                         />
-                        {/* Overlay */}
+                        {}
                         <Box
                             className="overlay"
                             sx={{

@@ -55,7 +55,6 @@ export default function SignUpTextFields() {
     const navigate = useNavigate();
 
     const handleSignUp = (values, { setSubmitting }) => {
-        // Here you would typically send data to your backend
         console.log("Sign up data:", values);
         setSubmitting(false);
         navigate("/signin");
@@ -70,7 +69,7 @@ export default function SignUpTextFields() {
                 bgcolor: "#FFFFFF",
             }}
         >
-            {/* Left Side: Form */}
+            {}
             <Box
                 sx={{
                     display: "flex",
@@ -80,7 +79,7 @@ export default function SignUpTextFields() {
                     py: "72px",
                 }}
             >
-                {/* Heading */}
+                {}
                 <Typography
                     component="h2"
                     sx={{
@@ -95,7 +94,7 @@ export default function SignUpTextFields() {
                     Your Information
                 </Typography>
 
-                {/* Login Link */}
+                {}
                 <Typography
                     sx={{
                         fontFamily: "'Poppins', sans-serif",
@@ -121,7 +120,7 @@ export default function SignUpTextFields() {
                     </Box>
                 </Typography>
 
-                {/* Form Fields */}
+                {}
                 <Formik
                     initialValues={{
                         name: "",
@@ -143,7 +142,7 @@ export default function SignUpTextFields() {
                                     rowGap: "40px",
                                 }}
                             >
-                                {/* Name */}
+                                {}
                                 <Box>
                                     <Typography component="label" htmlFor="signup-name" sx={labelStyle}>
                                         Your name
@@ -161,7 +160,7 @@ export default function SignUpTextFields() {
                                     />
                                 </Box>
 
-                                {/* Email */}
+                                {}
                                 <Box>
                                     <Typography component="label" htmlFor="signup-email" sx={labelStyle}>
                                         E-mail
@@ -180,7 +179,7 @@ export default function SignUpTextFields() {
                                     />
                                 </Box>
 
-                                {/* Phone - Full Width */}
+                                {}
                                 <Box sx={{ gridColumn: { sm: "1 / -1" } }}>
                                     <Typography component="label" htmlFor="signup-phone" sx={labelStyle}>
                                         Phone number
@@ -198,7 +197,7 @@ export default function SignUpTextFields() {
                                     />
                                 </Box>
 
-                                {/* Password */}
+                                {}
                                 <Box>
                                     <Typography component="label" htmlFor="signup-password" sx={labelStyle}>
                                         Password
@@ -217,7 +216,7 @@ export default function SignUpTextFields() {
                                     />
                                 </Box>
 
-                                {/* Reset Password */}
+                                {}
                                 <Box>
                                     <Typography component="label" htmlFor="signup-reset-password" sx={labelStyle}>
                                         Reset Password
@@ -237,7 +236,7 @@ export default function SignUpTextFields() {
                                 </Box>
                             </Box>
 
-                            {/* Create Account Button */}
+                            {}
                             <Box sx={{ mt: "56px" }}>
                                 <Button
                                     type="submit"
@@ -270,7 +269,7 @@ export default function SignUpTextFields() {
                 </Formik>
             </Box>
 
-            {/* Right Side: Marketing Banner */}
+            {}
             <Box
                 sx={{
                     bgcolor: "#F6F6F6",
@@ -280,7 +279,7 @@ export default function SignUpTextFields() {
                     minHeight: { xs: "380px", md: "100%" },
                 }}
             >
-                {/* Banner Text */}
+                {}
                 <Box
                     sx={{
                         display: "flex",
@@ -292,7 +291,7 @@ export default function SignUpTextFields() {
                         maxWidth: "65%",
                     }}
                 >
-                    {/* HOT Badge */}
+                    {}
                     <Box
                         sx={{
                             bgcolor: "#E97171",
@@ -311,7 +310,7 @@ export default function SignUpTextFields() {
                         HOT
                     </Box>
 
-                    {/* Promo Heading */}
+                    {}
                     <Typography
                         sx={{
                             fontFamily: "'Poppins', sans-serif",
@@ -329,7 +328,7 @@ export default function SignUpTextFields() {
                     </Typography>
                 </Box>
 
-                {/* Lamp Image */}
+                {}
                 <Box
                     sx={{
                         position: "absolute",

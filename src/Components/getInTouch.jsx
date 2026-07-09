@@ -17,10 +17,9 @@ const GetInTouch = () => {
                 maxWidth: "1400px",
                 margin: "0 auto",
                 position: "relative",
-                overflow: "visible", // Allows the sofa/lamp to overlap naturally if needed
+                overflow: "visible",
             }}
         >
-            {/* Left: Sofa/Lamp Imagery */}
             <Box
                 sx={{
                     flex: 1,
@@ -42,8 +41,6 @@ const GetInTouch = () => {
                     }}
                 />
             </Box>
-
-            {/* Right: Content & Subscription Form */}
             <Box
                 sx={{
                     flex: 1,
@@ -77,8 +74,6 @@ const GetInTouch = () => {
                 >
                     We'd love to hear from you: connect with us for a seamless shopping experience and personalized assistance.
                 </Typography>
-
-                {/* Subscription Form Input Row */}
                 <Box
                     component="form"
                     onSubmit={(e) => e.preventDefault()}
@@ -110,13 +105,13 @@ const GetInTouch = () => {
                         type="submit"
                         variant="contained"
                         sx={{
-                            bgcolor: "#2F302C", // Dark charcoal color from the design
+                            bgcolor: "#2F302C",
                             color: "#FFFFFF",
                             fontFamily: "'Poppins', sans-serif",
                             fontSize: "13px",
                             fontWeight: 500,
-                            textTransform: "none", // Keeps it standard text casing or "Subcribes"
-                            borderRadius: "0px", // Direct square corners like the design
+                            textTransform: "none",
+                            borderRadius: "0px",
                             px: "36px",
                             py: "12px",
                             boxShadow: "none",

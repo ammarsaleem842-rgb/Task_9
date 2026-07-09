@@ -17,7 +17,6 @@ const SearchSidebar = ({ filters, onFilterChange }) => {
     };
 
     const handleApplyPrice = () => {
-        // Price is already applied via slider change
     };
 
     return (
@@ -34,7 +33,7 @@ const SearchSidebar = ({ filters, onFilterChange }) => {
                 p: 2,
             }}
         >
-            {/* SECTION 1: CATEGORY */}
+            {}
             <Box>
                 <Typography
                     sx={{
@@ -50,7 +49,7 @@ const SearchSidebar = ({ filters, onFilterChange }) => {
                 </Typography>
                 <Box sx={{ width: "35px", height: "3px", bgcolor: "#222222", mb: "24px" }} />
 
-                {/* FUNITURE SECTION */}
+                {}
                 <Box sx={{ mb: "20px" }}>
                     <Box
                         sx={{
@@ -87,7 +86,7 @@ const SearchSidebar = ({ filters, onFilterChange }) => {
                     </Box>
                 </Box>
 
-                {/* SHIPPING SECTION */}
+                {}
                 <Box
                     sx={{
                         display: "flex",
@@ -104,7 +103,7 @@ const SearchSidebar = ({ filters, onFilterChange }) => {
                     <Typography sx={{ fontSize: "16px", fontWeight: 400, color: "#666" }}>+</Typography>
                 </Box>
 
-                {/* ALL PRODUCT SECTION */}
+                {}
                 <Box
                     onClick={() => handleCategoryClick("")}
                     sx={{
@@ -129,7 +128,7 @@ const SearchSidebar = ({ filters, onFilterChange }) => {
                 </Box>
             </Box>
 
-            {/* SECTION 2: SHOP BY */}
+            {}
             <Box sx={{ mt: "8px" }}>
                 <Typography
                     sx={{
@@ -145,7 +144,7 @@ const SearchSidebar = ({ filters, onFilterChange }) => {
                 </Typography>
                 <Box sx={{ width: "35px", height: "3px", bgcolor: "#222222", mb: "24px" }} />
 
-                {/* MATERIALS */}
+                {}
                 <Box sx={{ mb: "20px" }}>
                     <Box
                         sx={{
@@ -183,7 +182,7 @@ const SearchSidebar = ({ filters, onFilterChange }) => {
                     </Box>
                 </Box>
 
-                {/* PRICE */}
+                {}
                 <Box sx={{ mb: "20px" }}>
                     <Box
                         sx={{
@@ -268,7 +267,7 @@ const SearchSidebar = ({ filters, onFilterChange }) => {
                     </Box>
                 </Box>
 
-                {/* ALL PRODUCT SECTION */}
+                {}
                 <Box
                     onClick={() => handleCategoryClick("")}
                     sx={{
@@ -293,7 +292,7 @@ const SearchSidebar = ({ filters, onFilterChange }) => {
                     <Typography sx={{ fontSize: "16px", fontWeight: 400, color: "#666" }}>+</Typography>
                 </Box>
 
-                {/* SIZE */}
+                {}
                 <Box sx={{ mb: "20px" }}>
                     <Box
                         sx={{
@@ -328,7 +327,7 @@ const SearchSidebar = ({ filters, onFilterChange }) => {
                     </Box>
                 </Box>
 
-                {/* COMPARE */}
+                {}
                 <Box>
                     <Box
                         sx={{

@@ -22,7 +22,7 @@ const AddCart = () => {
         <Box sx={{ bgcolor: "#FFFFFF", minHeight: "100vh" }}>
             <NavBar />
 
-            {/* Page Header */}
+            {}
             <Box sx={{ bgcolor: "#FFFFFF", py: "28px", textAlign: "center" }}>
                 <Typography component="h1" sx={{ fontFamily: "'Poppins', sans-serif", fontWeight: 700, fontSize: { xs: "22px", md: "28px" }, color: "#2F302C", textTransform: "uppercase", letterSpacing: "0.5px", mb: "6px" }}>
                     Shoping Cart
@@ -31,7 +31,7 @@ const AddCart = () => {
                     THIS IS YOUR CART BASED ON WHAT YOU WANTED TO BY
                 </Typography>
 
-                {/* Stepper */}
+                {}
                 <Box sx={{ maxWidth: 900, mx: 'auto', mt: 2 }}>
                     <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
                         <Box sx={{ flex: 1, height: 2, bgcolor: '#EDEDED' }} />
@@ -72,7 +72,7 @@ const AddCart = () => {
                 </Box>
             </Box>
 
-            {/* Cart Content */}
+            {}
             <Box
                 sx={{
                     display: "flex",
@@ -82,9 +82,9 @@ const AddCart = () => {
                     py: "60px",
                 }}
             >
-                {/* Cart Items */}
+                {}
                 <Box sx={{ flex: 2 }}>
-                    {/* Header Row */}
+                    {}
                     <Box
                         sx={{
                             display: "grid",
@@ -159,7 +159,7 @@ const AddCart = () => {
                     ))}
                 </Box>
 
-                {/* Order Summary */}
+                {}
                 <Box
                     sx={{
                         flex: 1,

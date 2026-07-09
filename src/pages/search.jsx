@@ -33,7 +33,6 @@ const Search = () => {
 
     const filteredProducts = useMemo(() => {
         return products.filter((product) => {
-            // Search query filter
             if (searchQuery) {
                 const query = searchQuery.toLowerCase()
                 const matchesName = product.name.toLowerCase().includes(query)
@@ -41,12 +40,10 @@ const Search = () => {
                 if (!matchesName && !matchesCategory) return false
             }
 
-            // Category filter
             if (filters.category) {
                 if (product.category.toLowerCase() !== filters.category.toLowerCase()) return false
             }
 
-            // Price range filter
             if (product.price < filters.priceRange[0] || product.price > filters.priceRange[1]) return false
 
             return true
@@ -57,7 +54,7 @@ const Search = () => {
         <Box sx={{ bgcolor: "#FFFFFF", minHeight: "100vh" }}>
             <NavBar />
 
-            {/* Main Content Area with Sidebar */}
+            {}
             <Box
                 sx={{
                     display: "flex",
@@ -70,7 +67,7 @@ const Search = () => {
                     width: "100%",
                 }}
             >
-                {/* Sidebar */}
+                {}
                 <Box
                     sx={{
                         flex: "0 0 auto",
@@ -80,9 +77,9 @@ const Search = () => {
                     <SearchSidebar filters={filters} onFilterChange={setFilters} />
                 </Box>
 
-                {/* Results Area */}
+                {}
                 <Box sx={{ flex: 1, minWidth: 0 }}>
-                    {/* Results Count & Add Product */}
+                    {}
                     <Box
                         sx={{
                             display: "flex",
@@ -134,7 +131,7 @@ const Search = () => {
                         </Button>
                     </Box>
 
-                    {/* Products Grid */}
+                    {}
                     {filteredProducts.length === 0 ? (
                         <Box sx={{ textAlign: "center", py: "80px" }}>
                             <Typography
@@ -171,7 +168,7 @@ const Search = () => {
                         </Box>
                     )}
 
-                    {/* Pagination */}
+                    {}
                     <Box
                         sx={{
                             display: "flex",
@@ -209,7 +206,7 @@ const Search = () => {
                 </Box>
             </Box>
 
-            {/* Add Product Modal */}
+            {}
             <AddProductModal
                 open={modalOpen}
                 onClose={() => setModalOpen(false)}

@@ -55,8 +55,6 @@ const ShippingAndPayment = () => {
     return (
         <Box sx={{ bgcolor: "#FFFFFF", minHeight: "100vh" }}>
             <NavBar />
-
-            {/* Header */}
             <Box sx={{ bgcolor: "#FFFFFF", py: { xs: 4, md: 6 }, px: { xs: 3, md: 6 }, textAlign: "center" }}>
                 <Typography component="h1" sx={{ fontFamily: "'Poppins', sans-serif", fontSize: { xs: "24px", md: "36px" }, fontWeight: 700, color: "#2F302C", textTransform: "uppercase", mb: 1 }}>
                     Shipping & Payment
@@ -65,50 +63,48 @@ const ShippingAndPayment = () => {
                     CHOOSE THE PAYMENT AND SHIPPING METHOD YOU WANT
                 </Typography>
             </Box>
-
-            {/* Progress Steps */}
             <Box sx={{ px: { xs: 3, md: 6, lg: 8 }, py: 5 }}>
-                    <Box sx={{ position: 'relative', display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 6 }}>
-                        <Box sx={{ position: 'absolute', top: 20, left: '6%', right: '6%', height: '2px', bgcolor: '#E9E9E9', zIndex: 0 }} />
-                        <Box sx={{ position: 'absolute', top: 20, left: '6%', height: '2px', bgcolor: '#2F302C', width: `${(activeIndex/(steps.length-1))*100}%`, zIndex: 1 }} />
+                <Box sx={{ position: 'relative', display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 6 }}>
+                    <Box sx={{ position: 'absolute', top: 20, left: '6%', right: '6%', height: '2px', bgcolor: '#E9E9E9', zIndex: 0 }} />
+                    <Box sx={{ position: 'absolute', top: 20, left: '6%', height: '2px', bgcolor: '#2F302C', width: `${(activeIndex / (steps.length - 1)) * 100}%`, zIndex: 1 }} />
 
-                        {steps.map((step, index) => {
-                            const state = index < activeIndex ? 'done' : index === activeIndex ? 'active' : 'future';
-                            return (
-                                <Box key={step.label} sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', flex: 1, zIndex: 2, textAlign: 'center' }}>
-                                    <Box sx={{ mb: 1.5 }}>
-                                        {state === 'done' && (
-                                            <Box sx={{ width: 44, height: 44, borderRadius: '50%', bgcolor: '#2F302C', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontWeight: 700 }}>{index + 1}</Box>
-                                        )}
-                                        {state === 'active' && (
-                                            <Box sx={{ width: 44, height: 44, borderRadius: '50%', border: '2px solid #2F302C', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                                                <Box sx={{ width: 12, height: 12, borderRadius: '50%', bgcolor: '#2F302C' }} />
-                                            </Box>
-                                        )}
-                                        {state === 'future' && (
-                                            <Box sx={{ width: 44, height: 44, borderRadius: '50%', bgcolor: '#F5F5F5' }} />
-                                        )}
-                                    </Box>
-                                    <Typography sx={{ fontFamily: "'Poppins', sans-serif", fontSize: '11px', fontWeight: 600, color: '#2F302C', textTransform: 'uppercase' }}>{step.label}</Typography>
-                                    <Typography sx={{ fontSize: 11, color: '#9F9F9F', maxWidth: 140 }}>{index === 0 ? 'Review all your product and edit the number.' : index === 1 ? 'Add your name, phone number and address.' : index === 2 ? 'With many payment method, included yours.' : 'View all your information before the confirmation.'}</Typography>
+                    {steps.map((step, index) => {
+                        const state = index < activeIndex ? 'done' : index === activeIndex ? 'active' : 'future';
+                        return (
+                            <Box key={step.label} sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', flex: 1, zIndex: 2, textAlign: 'center' }}>
+                                <Box sx={{ mb: 1.5 }}>
+                                    {state === 'done' && (
+                                        <Box sx={{ width: 44, height: 44, borderRadius: '50%', bgcolor: '#2F302C', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontWeight: 700 }}>{index + 1}</Box>
+                                    )}
+                                    {state === 'active' && (
+                                        <Box sx={{ width: 44, height: 44, borderRadius: '50%', border: '2px solid #2F302C', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                                            <Box sx={{ width: 12, height: 12, borderRadius: '50%', bgcolor: '#2F302C' }} />
+                                        </Box>
+                                    )}
+                                    {state === 'future' && (
+                                        <Box sx={{ width: 44, height: 44, borderRadius: '50%', bgcolor: '#F5F5F5' }} />
+                                    )}
                                 </Box>
-                            );
-                        })}
-                    </Box>
+                                <Typography sx={{ fontFamily: "'Poppins', sans-serif", fontSize: '11px', fontWeight: 600, color: '#2F302C', textTransform: 'uppercase' }}>{step.label}</Typography>
+                                <Typography sx={{ fontSize: 11, color: '#9F9F9F', maxWidth: 140 }}>{index === 0 ? 'Review all your product and edit the number.' : index === 1 ? 'Add your name, phone number and address.' : index === 2 ? 'With many payment method, included yours.' : 'View all your information before the confirmation.'}</Typography>
+                            </Box>
+                        );
+                    })}
+                </Box>
             </Box>
 
-            {/* Main Content */}
+            {}
             <Box sx={{ px: { xs: 3, md: 6, lg: 8 }, pb: 8 }}>
                 <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", lg: "1.5fr 1fr" }, gap: 4 }}>
-                    {/* Left Column */}
+                    {}
                     <Box>
-                        {/* Shipping Information (selected address) */}
+                        {}
                         <Box sx={{ mb: 4 }}>
                             <Typography sx={{ fontFamily: "'Poppins', sans-serif", fontSize: "18px", fontWeight: 700, color: "#2F302C", textTransform: "uppercase", mb: 1 }}>Shipping Information</Typography>
                             <Typography sx={{ fontFamily: "'Poppins', sans-serif", fontSize: "13px", color: "#9F9F9F", mb: 2 }}>Please check before you finalize your order</Typography>
 
                             <Box sx={{ bgcolor: '#2F302C', color: '#fff', borderRadius: 1, p: 3, mb: 3, position: 'relative' }}>
-                                <IconButton size="small" sx={{ position: 'absolute', top: 12, right: 12, color: '#fff' }}><EditOutlinedIcon fontSize="small"/></IconButton>
+                                <IconButton size="small" sx={{ position: 'absolute', top: 12, right: 12, color: '#fff' }}><EditOutlinedIcon fontSize="small" /></IconButton>
                                 <Typography sx={{ fontWeight: 700 }}>Jane Cooper</Typography>
                                 <Typography sx={{ fontSize: 13, color: '#D0D0D0', mt: 1 }}>(480) 555-0103</Typography>
                                 <Typography sx={{ fontSize: 13, color: '#D0D0D0', mt: 1 }}>2972 Westheimer Rd. Santa Ana, Illinois 85486</Typography>
@@ -152,7 +148,7 @@ const ShippingAndPayment = () => {
                             </RadioGroup>
                         </Box>
 
-                        {/* Payment Method */}
+                        {}
                         <Box>
                             <Typography sx={{ fontFamily: "'Poppins', sans-serif", fontSize: "18px", fontWeight: 700, color: "#2F302C", textTransform: "uppercase", mb: 1 }}>Payment Method</Typography>
                             <Typography sx={{ fontFamily: "'Poppins', sans-serif", fontSize: "13px", color: "#9F9F9F", mb: 3 }}>Please check before you finalize your order</Typography>
@@ -172,7 +168,7 @@ const ShippingAndPayment = () => {
                                                             <Typography sx={{ fontFamily: "'Poppins', sans-serif", fontSize: 12, color: '#9F9F9F' }}>{method.id === 'credit' ? '**** 7282 - Expired 8/2022' : 'Insert your account email of paypal. We will process your payment.'}</Typography>
                                                         </Box>
                                                     </Box>
-                                                    <IconButton size="small"><EditOutlinedIcon fontSize="small"/></IconButton>
+                                                    <IconButton size="small"><EditOutlinedIcon fontSize="small" /></IconButton>
                                                 </Box>
                                             }
                                         />
@@ -180,7 +176,7 @@ const ShippingAndPayment = () => {
                                 ))}
                             </RadioGroup>
 
-                            {/* Payment Form Fields (condensed) */}
+                            {}
                             <Box sx={{ mt: 3 }}>
                                 <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', sm: '1fr 1fr' }, gap: 2 }}>
                                     <TextField placeholder="Jennie" variant="standard" sx={inputStyles} />
@@ -194,8 +190,6 @@ const ShippingAndPayment = () => {
                             </Box>
                         </Box>
                     </Box>
-
-                    {/* Right Column - Order Summary */}
                     <Box sx={{ bgcolor: "#FFFFFF", p: 3, height: "fit-content", borderLeft: '1px solid #EAEAEA', pl: { xs: 0, lg: 6 } }}>
                         <Typography sx={{
                             fontFamily: "'Poppins', sans-serif",
@@ -207,8 +201,6 @@ const ShippingAndPayment = () => {
                         }}>
                             Your Order
                         </Typography>
-
-                        {/* Products */}
                         <Box sx={{ display: "grid", gap: 2, mb: 3, maxHeight: "300px", overflowY: "auto" }}>
                             {cartItems.map((item) => (
                                 <Box key={item.id} sx={{
@@ -261,8 +253,6 @@ const ShippingAndPayment = () => {
                         </Box>
 
                         <Divider sx={{ my: 2 }} />
-
-                        {/* Pricing */}
                         <Box sx={{ mb: 2.5 }}>
                             <Box sx={{ display: "flex", justifyContent: "space-between", mb: 1.5 }}>
                                 <Typography sx={{
@@ -334,8 +324,6 @@ const ShippingAndPayment = () => {
                         </Box>
 
                         <Divider sx={{ my: 2 }} />
-
-                        {/* Total */}
                         <Box sx={{ display: "flex", justifyContent: "space-between", mb: 3 }}>
                             <Typography sx={{
                                 fontFamily: "'Poppins', sans-serif",
@@ -354,8 +342,6 @@ const ShippingAndPayment = () => {
                                 ${finalTotal.toFixed(2)}
                             </Typography>
                         </Box>
-
-                        {/* Button */}
                         <Button
                             component={Link}
                             to="/revieworder"
@@ -379,8 +365,6 @@ const ShippingAndPayment = () => {
                     </Box>
                 </Box>
             </Box>
-
-            {/* Why Choose Us Section */}
             <WhyChoseUs />
 
             <Footer />

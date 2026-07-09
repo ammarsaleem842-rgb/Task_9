@@ -53,7 +53,6 @@ const SignIn = () => {
     const [showPassword, setShowPassword] = useState(false);
 
     const handleSignIn = (values, { setSubmitting }) => {
-        // Here you would typically send data to your backend for authentication
         console.log("Sign in data:", values);
         setSubmitting(false);
         navigate("/homepage");
@@ -68,7 +67,6 @@ const SignIn = () => {
                 bgcolor: "#FFFFFF",
             }}
         >
-            {/* Left Side: Form */}
             <Box
                 sx={{
                     display: "flex",
@@ -78,7 +76,6 @@ const SignIn = () => {
                     py: "72px",
                 }}
             >
-                {/* Heading */}
                 <Typography
                     component="h2"
                     sx={{
@@ -92,8 +89,6 @@ const SignIn = () => {
                 >
                     Welcome Back
                 </Typography>
-
-                {/* Sign Up Link */}
                 <Typography
                     sx={{
                         fontFamily: "'Poppins', sans-serif",
@@ -117,8 +112,6 @@ const SignIn = () => {
                         Sign up here
                     </Link>
                 </Typography>
-
-                {/* Form Fields */}
                 <Formik
                     initialValues={{
                         email: "",
@@ -137,7 +130,6 @@ const SignIn = () => {
                                     maxWidth: "480px",
                                 }}
                             >
-                                {/* Email */}
                                 <Box>
                                     <Typography component="label" htmlFor="signin-email" sx={labelStyle}>
                                         E-mail
@@ -155,8 +147,6 @@ const SignIn = () => {
                                         helperText={touched.email && errors.email}
                                     />
                                 </Box>
-
-                                {/* Password */}
                                 <Box>
                                     <Typography component="label" htmlFor="signin-password" sx={labelStyle}>
                                         Password
@@ -174,8 +164,6 @@ const SignIn = () => {
                                         helperText={touched.password && errors.password}
                                     />
                                 </Box>
-
-                                {/* Sign In Button */}
                                 <Box sx={{ mt: "16px" }}>
                                     <Button
                                         type="submit"
@@ -207,8 +195,6 @@ const SignIn = () => {
                     )}
                 </Formik>
             </Box>
-
-            {/* Right Side: Marketing Banner */}
             <Box
                 sx={{
                     bgcolor: "#F6F6F6",
@@ -218,7 +204,6 @@ const SignIn = () => {
                     minHeight: { xs: "380px", md: "100%" },
                 }}
             >
-                {/* Banner Text */}
                 <Box
                     sx={{
                         display: "flex",
@@ -230,7 +215,6 @@ const SignIn = () => {
                         maxWidth: "65%",
                     }}
                 >
-                    {/* Welcome Badge */}
                     <Box
                         sx={{
                             bgcolor: "#B88E2F",
@@ -248,8 +232,6 @@ const SignIn = () => {
                     >
                         WELCOME
                     </Box>
-
-                    {/* Promo Heading */}
                     <Typography
                         sx={{
                             fontFamily: "'Poppins', sans-serif",
@@ -265,8 +247,6 @@ const SignIn = () => {
                         Here
                     </Typography>
                 </Box>
-
-                {/* Lamp Image */}
                 <Box
                     sx={{
                         position: "absolute",

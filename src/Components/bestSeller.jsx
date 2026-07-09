@@ -52,7 +52,6 @@ const BestSeller = () => {
                 bgcolor: "#F9F9F9",
             }}
         >
-            {/* Section Header */}
             <Box sx={{ textAlign: "center" }}>
                 <Typography
                     sx={{
@@ -81,8 +80,6 @@ const BestSeller = () => {
                     Best Seller
                 </Typography>
             </Box>
-
-            {/* Products Grid */}
             <Box
                 sx={{
                     display: "grid",

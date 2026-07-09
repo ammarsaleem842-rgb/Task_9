@@ -41,7 +41,6 @@ const CatagoriesBanner = () => {
                 gap: "40px",
             }}
         >
-            {/* Section Header */}
             <Box sx={{ textAlign: "center", mb: "8px" }}>
                 <Typography
                     component="h2"
@@ -57,8 +56,6 @@ const CatagoriesBanner = () => {
                     Categories
                 </Typography>
             </Box>
-
-            {/* Cards Row */}
             <Box
                 sx={{
                     display: "flex",
@@ -69,7 +66,6 @@ const CatagoriesBanner = () => {
                     alignItems: "stretch",
                 }}
             >
-                {/* Card 1 – Hanging Light */}
                 <Box
                     sx={{
                         bgcolor: "#F7F7F7",
@@ -84,7 +80,6 @@ const CatagoriesBanner = () => {
                         transition: "transform 0.25s, box-shadow 0.25s",
                     }}
                 >
-                    {/* Image area */}
                     <Box
                         sx={{
                             flex: 1,
@@ -110,8 +105,6 @@ const CatagoriesBanner = () => {
                             sx={{ height: "150px", mt: "24px", objectFit: "contain" }}
                         />
                     </Box>
-
-                    {/* Text area */}
                     <Box sx={{ p: "28px 28px 32px" }}>
                         <Typography
                             component="h3"
@@ -142,8 +135,6 @@ const CatagoriesBanner = () => {
                         <ViewMoreLink />
                     </Box>
                 </Box>
-
-                {/* Card 2 – Designed Sofa (wider, centered content) */}
                 <Box
                     sx={{
                         bgcolor: "#E8F5E0",
@@ -158,7 +149,6 @@ const CatagoriesBanner = () => {
                         transition: "transform 0.25s, box-shadow 0.25s",
                     }}
                 >
-                    {/* Text area (top) */}
                     <Box sx={{ p: "36px 32px 0", textAlign: "center" }}>
                         <Typography
                             component="h3"
@@ -190,8 +180,6 @@ const CatagoriesBanner = () => {
                             <ViewMoreLink />
                         </Box>
                     </Box>
-
-                    {/* Image area (bottom) */}
                     <Box sx={{ flex: 1, display: "flex", alignItems: "flex-end", justifyContent: "center", pb: "0px" }}>
                         <Box
                             component="img"
@@ -201,8 +189,6 @@ const CatagoriesBanner = () => {
                         />
                     </Box>
                 </Box>
-
-                {/* Card 3 – Nova Chair */}
                 <Box
                     sx={{
                         bgcolor: "#F7F7F7",
@@ -217,7 +203,6 @@ const CatagoriesBanner = () => {
                         transition: "transform 0.25s, box-shadow 0.25s",
                     }}
                 >
-                    {/* Text area (top) */}
                     <Box sx={{ p: "36px 28px 0" }}>
                         <Typography
                             component="h3"
@@ -247,8 +232,6 @@ const CatagoriesBanner = () => {
                         </Typography>
                         <ViewMoreLink />
                     </Box>
-
-                    {/* Image area (bottom-right) */}
                     <Box
                         sx={{
                             flex: 1,
