@@ -3,7 +3,7 @@ import Rating from "@mui/material/Rating";
 import { useState } from "react";
 import { products, categories } from "../data/products";
 import { useNavigate } from "react-router-dom";
-import { useCart } from "../hooks/useCart";
+import { useCart } from "../hooks/useCart.jsx";
 
 const FeaturedProducts = () => {
     const navigate = useNavigate();
@@ -117,7 +117,7 @@ const FeaturedProducts = () => {
                                 transform: "translateY(-8px)",
                             },
                         }}
-                        onClick={() => navigate(`/productdetail`)}
+                        onClick={() => navigate(`/productdetail/${product.id}`)}
                     >
                         <Box
                             sx={{

@@ -1,6 +1,6 @@
 import { Box, Typography, Rating, Button } from "@mui/material"
 import { Link } from "react-router-dom"
-import { useCart } from "../hooks/useCart"
+import { useCart } from "../hooks/useCart.jsx"
 
 const SearchResultCard = ({ product }) => {
     const { addToCart } = useCart()
@@ -58,7 +58,7 @@ const SearchResultCard = ({ product }) => {
                     }}
                 >
                     <Link
-                        to="/productdetail"
+                        to={`/productdetail/${product.id}`}
                         style={{ color: "#2F302C", textDecoration: "none" }}
                     >
                         {product.name}

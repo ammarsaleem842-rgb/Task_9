@@ -3,27 +3,25 @@ import { Link } from "react-router-dom";
 import NavBar from "../Components/navBar";
 import Footer from "../Components/footer";
 import WhyChoseUs from "../Components/whyChoseUs";
-import { useCart } from "../hooks/useCart";
+import { useCart } from "../hooks/useCart.jsx";
 
 const inputStyles = {
     width: "100%",
-    "& .MuiInputBase-root": {
-        borderRadius: "4px",
-        backgroundColor: "#FFFFFF",
-        border: "1px solid #E8E8E8",
-        px: 1.5,
-        py: 0.2,
-    },
-    "& .MuiInputBase-input": {
+    '& .MuiInputBase-input': {
         fontFamily: "'Poppins', sans-serif",
-        fontSize: "13px",
-        color: "#2F302C",
-        padding: "10px 12px",
-        "&::placeholder": {
-            color: "#9F9F9F",
-            opacity: 1,
-        },
+        fontSize: '13px',
+        color: '#2F302C',
+        padding: '10px 0',
     },
+    '& .MuiInput-underline:before': {
+        borderBottom: '1px solid #E8E8E8',
+    },
+    '& .MuiInput-underline:after': {
+        borderBottom: '2px solid #2F302C',
+    },
+    '& .MuiInput-root': {
+        padding: 0,
+    }
 };
 
 const CustomerInformation = () => {
@@ -32,11 +30,12 @@ const CustomerInformation = () => {
     const finalTotal = cartTotal - discount;
 
     const steps = [
-        { label: "CART", done: true },
-        { label: "CUSTOMER INFORMATION", done: false },
-        { label: "SHIPPING & PAYMENT", done: false },
-        { label: "REVIEW", done: false },
+        { label: "CART" },
+        { label: "CUSTOMER INFORMATION" },
+        { label: "SHIPPING & PAYMENT" },
+        { label: "REVIEW" },
     ];
+    const activeIndex = 2; // show Shipping & Payment as active/third step
 
     return (
         <Box sx={{ bgcolor: "#FFFFFF", minHeight: "100vh" }}>
@@ -54,58 +53,35 @@ const CustomerInformation = () => {
 
             {/* Progress Steps */}
             <Box sx={{ px: { xs: 3, md: 6, lg: 8 }, py: 5 }}>
-                <Box sx={{ position: "relative", display: "flex", justifyContent: "space-between", alignItems: "center", mb: 6 }}>
-                    {/* Connecting Line */}
-                    <Box sx={{
-                        position: "absolute",
-                        top: 20,
-                        left: "5%",
-                        right: "5%",
-                        height: "2px",
-                        bgcolor: "#2F302C",
-                        zIndex: 0
-                    }} />
+                    <Box sx={{ position: 'relative', display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 6 }}>
+                        {/* Base Line */}
+                        <Box sx={{ position: 'absolute', top: 20, left: '6%', right: '6%', height: '2px', bgcolor: '#E9E9E9', zIndex: 0 }} />
+                        {/* Filled Line */}
+                        <Box sx={{ position: 'absolute', top: 20, left: '6%', height: '2px', bgcolor: '#2F302C', width: `${(activeIndex/(steps.length-1))*100}%`, zIndex: 1 }} />
 
-                    {/* Steps */}
-                    {steps.map((step, index) => (
-                        <Box key={step.label} sx={{
-                            display: "flex",
-                            flexDirection: "column",
-                            alignItems: "center",
-                            flex: 1,
-                            zIndex: 1,
-                            textAlign: "center"
-                        }}>
-                            {/* Circle */}
-                            <Box sx={{
-                                width: 44,
-                                height: 44,
-                                borderRadius: "50%",
-                                bgcolor: "#2F302C",
-                                display: "flex",
-                                alignItems: "center",
-                                justifyContent: "center",
-                                fontSize: "16px",
-                                fontWeight: 700,
-                                color: "#FFFFFF",
-                                mb: 1.5,
-                                flexShrink: 0
-                            }}>
-                                {index + 1}
-                            </Box>
-                            {/* Label */}
-                            <Typography sx={{
-                                fontFamily: "'Poppins', sans-serif",
-                                fontSize: "11px",
-                                fontWeight: 600,
-                                color: "#2F302C",
-                                textTransform: "uppercase"
-                            }}>
-                                {step.label}
-                            </Typography>
-                        </Box>
-                    ))}
-                </Box>
+                        {steps.map((step, index) => {
+                            const state = index < activeIndex ? 'done' : index === activeIndex ? 'active' : 'future';
+                            return (
+                                <Box key={step.label} sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', flex: 1, zIndex: 2, textAlign: 'center' }}>
+                                    <Box sx={{ mb: 1.5 }}>
+                                        {state === 'done' && (
+                                            <Box sx={{ width: 44, height: 44, borderRadius: '50%', bgcolor: '#2F302C', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontWeight: 700 }}>{index + 1}</Box>
+                                        )}
+                                        {state === 'active' && (
+                                            <Box sx={{ width: 44, height: 44, borderRadius: '50%', border: '2px solid #2F302C', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                                                <Box sx={{ width: 12, height: 12, borderRadius: '50%', bgcolor: '#2F302C' }} />
+                                            </Box>
+                                        )}
+                                        {state === 'future' && (
+                                            <Box sx={{ width: 44, height: 44, borderRadius: '50%', bgcolor: '#F5F5F5' }} />
+                                        )}
+                                    </Box>
+                                    <Typography sx={{ fontFamily: "'Poppins', sans-serif", fontSize: '11px', fontWeight: 600, color: '#2F302C', textTransform: 'uppercase' }}>{step.label}</Typography>
+                                    <Typography sx={{ fontSize: 11, color: '#9F9F9F', maxWidth: 140 }}>{index === 0 ? 'Review all your product and edit the number.' : index === 1 ? 'Add your name, phone number and address.' : index === 2 ? 'With many payment method, included yours.' : 'View all your information before the confirmation.'}</Typography>
+                                </Box>
+                            );
+                        })}
+                    </Box>
             </Box>
 
             {/* Main Content */}
@@ -135,30 +111,30 @@ const CustomerInformation = () => {
                         <Box component="form" sx={{ display: "grid", gap: 2 }}>
                             {/* First Name / Last Name */}
                             <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", sm: "1fr 1fr" }, gap: 2 }}>
-                                <TextField placeholder="Your first name" variant="outlined" sx={inputStyles} />
-                                <TextField placeholder="Your last name" variant="outlined" sx={inputStyles} />
+                                <TextField placeholder="Your first name" variant="standard" sx={inputStyles} />
+                                <TextField placeholder="Your last name" variant="standard" sx={inputStyles} />
                             </Box>
 
                             {/* Email / Phone */}
                             <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", sm: "1fr 1fr" }, gap: 2 }}>
-                                <TextField placeholder="Your email" variant="outlined" sx={inputStyles} />
-                                <TextField placeholder="Phone number" variant="outlined" sx={inputStyles} />
+                                <TextField placeholder="Your email" variant="standard" sx={inputStyles} />
+                                <TextField placeholder="Phone number" variant="standard" sx={inputStyles} />
                             </Box>
 
                             {/* Country / City / ZIP */}
                             <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", sm: "1fr 1fr 1fr" }, gap: 2 }}>
-                                <TextField placeholder="Country" variant="outlined" sx={inputStyles} />
-                                <TextField placeholder="City" variant="outlined" sx={inputStyles} />
-                                <TextField placeholder="ZIP Code" variant="outlined" sx={inputStyles} />
+                                <TextField placeholder="Country" variant="standard" sx={inputStyles} />
+                                <TextField placeholder="City" variant="standard" sx={inputStyles} />
+                                <TextField placeholder="ZIP Code" variant="standard" sx={inputStyles} />
                             </Box>
 
                             {/* Address */}
-                            <TextField placeholder="Address details" variant="outlined" sx={inputStyles} />
+                            <TextField placeholder="Address details" variant="standard" sx={inputStyles} />
                         </Box>
                     </Box>
 
                     {/* Right Column - Order Summary */}
-                    <Box sx={{ bgcolor: "#F9F9F9", p: 3, borderRadius: "4px", height: "fit-content" }}>
+                    <Box sx={{ bgcolor: "#FFFFFF", p: 3, height: "fit-content", borderLeft: '1px solid #EAEAEA', pl: { xs: 0, lg: 6 } }}>
                         <Typography sx={{
                             fontFamily: "'Poppins', sans-serif",
                             fontSize: "16px",

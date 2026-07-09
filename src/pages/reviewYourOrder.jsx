@@ -2,7 +2,7 @@ import { Box, Typography, Button, Divider } from "@mui/material";
 import { Link } from "react-router-dom";
 import NavBar from "../Components/navBar";
 import Footer from "../Components/footer";
-import { useCart } from "../hooks/useCart";
+import { useCart } from "../hooks/useCart.jsx";
 import CustomerServices from "../Components/customerServices";
 import WhyChoseUs from "../Components/whyChoseUs";
 

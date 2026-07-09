@@ -17,7 +17,7 @@ const AppRoutes = () => {
             <Route path="/signup" element={<SignUp />} />
             <Route path="/signin" element={<SignIn />} />
             <Route path="/addcart" element={<AddCart />} />
-            <Route path="/productdetail" element={<ProductDetail />} />
+            <Route path="/productdetail/:id" element={<ProductDetail />} />
             <Route path="/search" element={<Search />} />
             <Route path="/customerinfo" element={<CustomerInformation />} />
             <Route path="/shipping" element={<ShippingAndPayment />} />

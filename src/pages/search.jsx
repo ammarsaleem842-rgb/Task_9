@@ -8,7 +8,7 @@ import Footer from "../Components/footer"
 import SearchSidebar from "../Components/searchSidebar"
 import SearchResultCard from "../Components/searchResultCard"
 import AddProductModal from "../Components/addProductModal"
-import { useCart } from "../hooks/useCart"
+import { useCart } from "../hooks/useCart.jsx"
 import { products as initialProducts } from "../data/products"
 
 const Search = () => {
