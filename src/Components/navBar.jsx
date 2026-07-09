@@ -8,12 +8,15 @@ const NavBar = () => {
     return (
         <Box sx={{
             bgcolor: '#FFFFFF',
-            height: '100px',
+            height: { xs: 'auto', md: '100px' },
             display: 'flex',
+            flexDirection: { xs: 'column', md: 'row' },
             alignItems: 'center',
             justifyContent: 'space-evenly',
-            fontFamily: 'sans-serif',
-            // alignContent: 'center'
+            fontFamily: "'Poppins', sans-serif",
+            py: { xs: 2, md: 0 },
+            gap: { xs: 2, md: 0 },
+            px: { xs: 2, md: 0 }
         }}>
             <svg width="152" height="32" viewBox="0 0 152 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M41.626 10.526H47.44V13.28H41.626V10.526ZM41.878 17.6H38.314V5H48.196V7.754H41.878V17.6Z" fill="#2F302C" />
@@ -70,7 +73,7 @@ const NavBar = () => {
                                 <SearchIcon sx={{ color: "#2F302C", height: "16px", width: '16px' }} />
                             </InputAdornment>
                         ),
-                        disableUnderline: true, // Drops the default active underline
+                        disableUnderline: true,
                     },
                 }}
                 sx={{
@@ -79,14 +82,11 @@ const NavBar = () => {
                     display: 'flex',
                     alignItems: 'center',
                     alignContent: 'center',
-                    // 1. Style the root wrapper container
                     "& .MuiInputBase-root": {
-                        backgroundColor: "transparent !important", // Removes the gray box fill
-                        paddingLeft: 0,                           // Flush to the left edge
-                        borderRadius: 0,                          // Removes any default rounded corners
-                        borderBottom: "1px solid #CCCCCC",        // The clean, light gray base line from your image
-
-                        // Forcefully kills all native Material-UI hover/focus underlines
+                        backgroundColor: "transparent !important",
+                        paddingLeft: 0,
+                        borderRadius: 0,
+                        borderBottom: "1px solid #CCCCCC",
                         "&:before, &:after": {
                             borderBottom: "none !important"
                         },
@@ -94,17 +94,14 @@ const NavBar = () => {
                             borderBottom: "none !important"
                         },
                     },
-
-                    // 2. Style the actual text area
                     "& .MuiInputBase-input": {
-                        fontSize: "16px",   // Matches the large, clean typography size
-                        color: "#757575",      // The muted gray color of the text
+                        fontSize: "16px",
+                        color: "#757575",
                         paddingLeft: "8px",
-                        paddingBottom: "4px",  // Keeps the text perfectly baseline-aligned with the icon
-
+                        paddingBottom: "4px",
                         "&::placeholder": {
                             color: "#757575",
-                            opacity: 1,          // Ensures the color isn't washed out by system defaults
+                            opacity: 1,
                         },
                     },
                 }}
@@ -113,10 +110,25 @@ const NavBar = () => {
                 <ul style={{
                     listStyle: 'none',
                     display: 'flex',
-                    gap: '20px'
+                    gap: '20px',
+                    padding: 0,
+                    margin: 0,
                 }}>
                     {listItems.map((item, index) => (
-                        <li key={index} ><Link to={item === "HOME" ? "/homepage" : "#"} style={{ textDecoration: 'none', color: '#2F302C' }}>{item}</Link></li>
+                        <li key={index}>
+                            <Link
+                                to={item === "HOME" ? "/homepage" : "#"}
+                                style={{
+                                    textDecoration: 'none',
+                                    color: '#2F302C',
+                                    fontFamily: "'Poppins', sans-serif",
+                                    fontSize: "14px",
+                                    fontWeight: 500,
+                                }}
+                            >
+                                {item}
+                            </Link>
+                        </li>
                     ))}
                 </ul>
             </Box>
@@ -125,18 +137,42 @@ const NavBar = () => {
                 <ul style={{
                     display: 'flex',
                     gap: '20px',
-                    listStyle: 'none'
+                    listStyle: 'none',
+                    padding: 0,
+                    margin: 0,
                 }}>
-                    <li><Link to="/homepage" style={{ textDecoration: 'none', color: '#2F302C' }}>LOVE</Link></li>
-                    <li><Link to="/homepage" style={{ textDecoration: 'none', color: '#2F302C' }}>CART</Link></li>
+                    <li>
+                        <Link
+                            to="/homepage"
+                            style={{
+                                textDecoration: 'none',
+                                color: '#2F302C',
+                                fontFamily: "'Poppins', sans-serif",
+                                fontSize: "14px",
+                                fontWeight: 500,
+                            }}
+                        >
+                            LOVE
+                        </Link>
+                    </li>
+                    <li>
+                        <Link
+                            to="/addcart"
+                            style={{
+                                textDecoration: 'none',
+                                color: '#2F302C',
+                                fontFamily: "'Poppins', sans-serif",
+                                fontSize: "14px",
+                                fontWeight: 500,
+                            }}
+                        >
+                            CART
+                        </Link>
+                    </li>
                 </ul>
             </Box>
-
-
-
         </Box>
     )
 }
 
 export default NavBar
-

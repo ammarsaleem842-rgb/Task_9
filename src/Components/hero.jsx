@@ -1,9 +1,6 @@
 import React from 'react';
 import { Box, Typography, Divider } from '@mui/material';
-
-// Based on your path: src/Components/hero.jsx
-// Make sure your image asset is saved correctly relative to this component.
-// import hero from './hero.jpg';
+import heroBg from "../../assets/hero.jpg";
 
 const Hero = () => {
     return (
@@ -12,7 +9,7 @@ const Hero = () => {
                 width: '100%',
                 height: { xs: 'auto', md: '520px' }, // Fixes structural stretching
                 minHeight: { xs: '320px' },
-                backgroundImage: `url(assets\hero.jpg)`,
+                backgroundImage: `url(${heroBg})`,
                 backgroundSize: 'cover',
                 backgroundPosition: 'left center', // Ensures the chair doesn't get cut off on wide viewports
                 backgroundRepeat: 'no-repeat',

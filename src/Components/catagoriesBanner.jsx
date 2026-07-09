@@ -42,7 +42,21 @@ const CatagoriesBanner = () => {
             }}
         >
             {/* Section Header */}
-
+            <Box sx={{ textAlign: "center", mb: "8px" }}>
+                <Typography
+                    component="h2"
+                    sx={{
+                        fontFamily: "'Poppins', sans-serif",
+                        fontWeight: 700,
+                        fontSize: { xs: "22px", md: "28px" },
+                        color: "#2F302C",
+                        textTransform: "uppercase",
+                        letterSpacing: "0.5px",
+                    }}
+                >
+                    Categories
+                </Typography>
+            </Box>
 
             {/* Cards Row */}
             <Box

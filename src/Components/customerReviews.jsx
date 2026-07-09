@@ -57,7 +57,7 @@ const CustomerReviews = () => {
                         letterSpacing: "0.5px",
                     }}
                 >
-                    REVIEWD BY CUSTOMERS {/* Typo kept identical to image */}
+                    REVIEWED BY CUSTOMERS
                 </Typography>
                 <Typography
                     sx={{

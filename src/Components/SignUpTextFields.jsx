@@ -5,6 +5,7 @@ import {
     Button,
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import lampImg from "../../assets/Lamp.png";
 
 const labelStyle = {
     fontFamily: "'Poppins', sans-serif",
@@ -287,7 +288,7 @@ export default function SignUpTextFields() {
                 >
                     <Box
                         component="img"
-                        src="assets/Lamp.png"
+                        src={lampImg}
                         alt="Promo Hanging Lamps"
                         sx={{
                             height: "100%",
