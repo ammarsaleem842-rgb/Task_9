@@ -7,28 +7,11 @@ import NavBar from "../Components/navBar"
 import WhyChoseUs from "../Components/whyChoseUs"
 import CustomerServices from "../Components/customerServices"
 import Footer from "../Components/footer"
-import chairImg from "../../assets/chair.png"
-import lampImg from "../../assets/lightbulb.png"
-
-const cartItems = [
-    {
-        id: 1,
-        name: "Stylish Chair",
-        price: 150.0,
-        quantity: 1,
-        image: chairImg,
-    },
-    {
-        id: 2,
-        name: "Modern Lamp",
-        price: 85.0,
-        quantity: 1,
-        image: lampImg,
-    },
-]
+import { useCart } from "../hooks/useCart"
 
 const AddCart = () => {
-    const subtotal = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0)
+    const { cartItems, updateQuantity, removeFromCart, cartTotal } = useCart()
+    const subtotal = cartTotal
 
     return (
         <Box sx={{ bgcolor: "#FFFFFF", minHeight: "100vh" }}>
@@ -37,7 +20,7 @@ const AddCart = () => {
             {/* Page Header */}
             <Box
                 sx={{
-                    bgcolor: "#F6F6F6",
+                    bgcolor: "#FFFFFF",
                     py: "40px",
                     textAlign: "center",
                 }}
@@ -163,6 +146,7 @@ const AddCart = () => {
                             >
                                 <IconButton
                                     size="small"
+                                    onClick={() => updateQuantity(item.id, item.quantity - 1)}
                                     sx={{
                                         border: "1px solid #E0E0E0",
                                         borderRadius: "4px",
@@ -186,6 +170,7 @@ const AddCart = () => {
                                 </Typography>
                                 <IconButton
                                     size="small"
+                                    onClick={() => updateQuantity(item.id, item.quantity + 1)}
                                     sx={{
                                         border: "1px solid #E0E0E0",
                                         borderRadius: "4px",
@@ -211,7 +196,10 @@ const AddCart = () => {
                             </Typography>
 
                             {/* Remove */}
-                            <IconButton size="small">
+                            <IconButton
+                                size="small"
+                                onClick={() => removeFromCart(item.id)}
+                            >
                                 <CloseIcon sx={{ fontSize: "18px", color: "#9F9F9F" }} />
                             </IconButton>
                         </Box>
@@ -256,6 +244,8 @@ const AddCart = () => {
                     </Box>
 
                     <Button
+                        component={Link}
+                        to="/customerinfo"
                         variant="contained"
                         fullWidth
                         sx={{

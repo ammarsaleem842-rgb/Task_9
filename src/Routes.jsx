@@ -5,6 +5,10 @@ import SignIn from "./pages/signIn";
 import AddCart from "./pages/addCart";
 import ProductDetail from "./pages/productDetail";
 import Search from "./pages/search";
+import CustomerInformation from "./pages/customerInformation";
+import ShippingAndPayment from "./pages/shippingAndPayment";
+import ReviewYourOrder from "./pages/reviewYourOrder";
+import Tracking from "./pages/tracking";
 
 const AppRoutes = () => {
     return (
@@ -15,6 +19,10 @@ const AppRoutes = () => {
             <Route path="/addcart" element={<AddCart />} />
             <Route path="/productdetail" element={<ProductDetail />} />
             <Route path="/search" element={<Search />} />
+            <Route path="/customerinfo" element={<CustomerInformation />} />
+            <Route path="/shipping" element={<ShippingAndPayment />} />
+            <Route path="/revieworder" element={<ReviewYourOrder />} />
+            <Route path="/tracking" element={<Tracking />} />
             <Route path="/homepage" element={<HomePage />} />
         </Routes>
     );
