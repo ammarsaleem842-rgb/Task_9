@@ -1,26 +1,27 @@
 import React from 'react';
 import { Box, Typography, Divider } from '@mui/material';
-import heroBg from "../../assets/hero.jpg";
+import heroBg from "../../assets/hero.jpg"; // Updated with clean forward slashes
 
 const Hero = () => {
     return (
         <Box
             sx={{
                 width: '100%',
-                height: { xs: 'auto', md: '520px' }, // Fixes structural stretching
-                minHeight: { xs: '320px' },
+                height: { xs: 'auto', md: '560px' }, // Matches the deep aspect ratio of the banner
+                minHeight: { xs: '400px', md: '560px' },
                 backgroundImage: `url(${heroBg})`,
                 backgroundSize: 'cover',
-                backgroundPosition: 'left center', // Ensures the chair doesn't get cut off on wide viewports
+                backgroundPosition: 'center', // Centers the entire room set frame
                 backgroundRepeat: 'no-repeat',
                 display: 'flex',
-                alignItems: 'center',
+                alignItems: 'center', // Centers text box vertically
                 justifyContent: 'flex-start',
                 boxSizing: 'border-box',
-                // Explicit layouts percentages matching the exact location of the text block
-                paddingLeft: { xs: '10%', sm: '48%', md: '52%' },
-                paddingRight: { xs: '10%', sm: '5%' },
-                py: { xs: 6, sm: 0 }
+                // Precise text section padding constraints matching the mockup composition split
+                paddingLeft: { xs: '8%', sm: '48%', md: '53%', lg: '54%' },
+                paddingRight: { xs: '8%', sm: '5%' },
+                py: { xs: 8, sm: 0 },
+                position: 'relative'
             }}
         >
             <Box
@@ -28,7 +29,8 @@ const Hero = () => {
                     display: 'flex',
                     flexDirection: 'column',
                     alignItems: 'flex-start',
-                    maxWidth: '520px',
+                    maxWidth: '560px',
+                    width: '100%'
                 }}
             >
                 {/* Top Kicker Text */}
@@ -36,10 +38,10 @@ const Hero = () => {
                     variant="caption"
                     sx={{
                         fontFamily: '"Montserrat", "Helvetica", "Arial", sans-serif',
-                        fontSize: { xs: '0.7rem', sm: '0.8rem', md: '0.9rem' },
-                        fontWeight: 700,
-                        letterSpacing: '0.12em',
-                        color: '#555555',
+                        fontSize: { xs: '0.75rem', sm: '0.85rem', md: '0.95rem' },
+                        fontWeight: 600,
+                        letterSpacing: '0.08em',
+                        color: '#4A4A4A',
                         textTransform: 'uppercase',
                         mb: 1.5,
                     }}
@@ -51,25 +53,35 @@ const Hero = () => {
                 <Typography
                     component="h1"
                     sx={{
-                        fontFamily: '"Montserrat", "Arial Black", sans-serif',
-                        fontSize: { xs: '2rem', sm: '2.8rem', md: '4rem' },
+                        fontFamily: '"Montserrat", sans-serif',
+                        fontSize: { xs: '2.2rem', sm: '3rem', md: '4.2rem', lg: '4.6rem' },
                         fontWeight: 800,
-                        lineHeight: 0.9, // Tightly compressed line height exactly matching design
-                        letterSpacing: '-0.01em',
-                        color: '#333333',
+                        lineHeight: 0.95, // Tight compression matching design precisely
+                        letterSpacing: '0.02em',
+                        color: '#2B2B2B', // Soft matte charcoal black
                         textTransform: 'uppercase',
                     }}
                 >
-                    Funiture<br />Gallery
+                    Funiture
+                    <Box
+                        component="span"
+                        sx={{
+                            display: 'block',
+                            color: '#525252', // Slightly softer grey treatment on second word
+                            fontWeight: 700
+                        }}
+                    >
+                        Gallery
+                    </Box>
                 </Typography>
 
                 {/* Accent Line Divider */}
                 <Divider
                     sx={{
-                        width: '180px',
-                        borderBottomWidth: 1.5,
-                        borderColor: '#999999',
-                        mt: 3,
+                        width: '210px',
+                        borderBottomWidth: '1.5px',
+                        borderColor: '#A0A0A0',
+                        mt: 2.5,
                         mb: 3,
                     }}
                 />
@@ -80,9 +92,9 @@ const Hero = () => {
                     sx={{
                         fontFamily: '"Montserrat", "Helvetica", sans-serif',
                         fontSize: { xs: '0.75rem', sm: '0.8rem', md: '0.85rem' },
-                        fontWeight: 700,
-                        letterSpacing: '0.08em',
-                        color: '#444444',
+                        fontWeight: 600,
+                        letterSpacing: '0.06em',
+                        color: '#3A3A3A',
                         textTransform: 'uppercase',
                         mb: 1.5,
                     }}
@@ -95,11 +107,12 @@ const Hero = () => {
                     variant="body2"
                     sx={{
                         fontFamily: '"Montserrat", "Helvetica", sans-serif',
-                        fontSize: { xs: '0.7rem', sm: '0.75rem', md: '0.8rem' },
-                        color: '#888888',
-                        lineHeight: 1.6,
-                        maxWidth: '360px',
-                        letterSpacing: '0.02em'
+                        fontSize: { xs: '0.7rem', sm: '0.75rem', md: '0.78rem' },
+                        fontWeight: 500,
+                        color: '#9A9A9A', // High-key muted gray matching the description text
+                        lineHeight: 1.5,
+                        maxWidth: '380px',
+                        letterSpacing: '0.01em'
                     }}
                 >
                     Featuring sleek designs and innovative materials that seamlessly blend form and function.
