@@ -1,10 +1,21 @@
 import { Box, TextField, InputAdornment } from "@mui/material"
 import SearchIcon from "@mui/icons-material/Search";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 const NavBar = () => {
+    const navigate = useNavigate();
+    const [searchQuery, setSearchQuery] = useState("");
 
     const listItems = ["HOME", "SHOP", 'BLOG', "ABOUT US"]
+
+    const handleSearchSubmit = (e) => {
+        if (e.key === 'Enter' && searchQuery.trim()) {
+            navigate(`/search?q=${encodeURIComponent(searchQuery.trim())}`);
+            setSearchQuery("");
+        }
+    };
+
     return (
         <Box sx={{
             bgcolor: '#FFFFFF',
@@ -66,6 +77,9 @@ const NavBar = () => {
             <TextField
                 variant="filled"
                 placeholder="Search something"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                onKeyDown={handleSearchSubmit}
                 slotProps={{
                     input: {
                         startAdornment: (
