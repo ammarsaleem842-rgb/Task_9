@@ -1,4 +1,4 @@
-import { Box, Typography, Button, Divider, IconButton, Rating } from "@mui/material"
+import { Box, Typography, Button, Divider, IconButton, Rating, Snackbar, Alert } from "@mui/material"
 import { Link } from "react-router-dom"
 import AddIcon from "@mui/icons-material/Add"
 import RemoveIcon from "@mui/icons-material/Remove"
@@ -8,8 +8,28 @@ import WhyChoseUs from "../Components/whyChoseUs"
 import CustomerServices from "../Components/customerServices"
 import Footer from "../Components/footer"
 import sofaImg from "../../assets/sofa.png"
+import { useCart } from "../hooks/useCart"
 
 const ProductDetail = () => {
+    const { addToCart } = useCart();
+    const [snackbar, setSnackbar] = useState({ open: false, message: "" });
+
+    const handleAddToCart = () => {
+        addToCart({
+            id: 1,
+            name: "Designed Sofa",
+            price: 250.00,
+            image: sofaImg,
+            rating: 5,
+            reviews: 24,
+            category: "Sofa",
+        });
+        setSnackbar({
+            open: true,
+            message: "Designed Sofa added to cart!"
+        });
+    };
+
     return (
         <Box sx={{ bgcolor: "#FFFFFF", minHeight: "100vh" }}>
             <NavBar />
@@ -274,28 +294,51 @@ const ProductDetail = () => {
                             </IconButton>
                         </Box>
 
-                        <Button
-                            variant="contained"
-                            sx={{
-                                height: "48px",
-                                px: "40px",
-                                bgcolor: "#000000",
-                                color: "#FFFFFF",
-                                fontFamily: "'Poppins', sans-serif",
-                                fontSize: "14px",
-                                fontWeight: 600,
-                                textTransform: "uppercase",
-                                borderRadius: "5px",
-                                letterSpacing: "1px",
+                    <Button
+                        variant="contained"
+                        onClick={handleAddToCart}
+                        sx={{
+                            height: "48px",
+                            px: "40px",
+                            bgcolor: "#000000",
+                            color: "#FFFFFF",
+                            fontFamily: "'Poppins', sans-serif",
+                            fontSize: "14px",
+                            fontWeight: 600,
+                            textTransform: "uppercase",
+                            borderRadius: "5px",
+                            letterSpacing: "1px",
+                            boxShadow: "none",
+                            "&:hover": {
+                                bgcolor: "#2F302C",
                                 boxShadow: "none",
-                                "&:hover": {
-                                    bgcolor: "#2F302C",
-                                    boxShadow: "none",
+                            },
+                        }}
+                    >
+                        Add To Cart
+                    </Button>
+
+                    <Snackbar
+                        open={snackbar.open}
+                        autoHideDuration={3000}
+                        onClose={() => setSnackbar({ ...snackbar, open: false })}
+                        anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
+                    >
+                        <Alert
+                            onClose={() => setSnackbar({ ...snackbar, open: false })}
+                            severity="success"
+                            sx={{
+                                fontFamily: "'Poppins', sans-serif",
+                                bgcolor: "#2F302C",
+                                color: "#FFFFFF",
+                                "& .MuiAlert-icon": {
+                                    color: "#FFFFFF",
                                 },
                             }}
                         >
-                            Add To Cart
-                        </Button>
+                            {snackbar.message}
+                        </Alert>
+                    </Snackbar>
 
                         <IconButton
                             sx={{

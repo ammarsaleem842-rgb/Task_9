@@ -8,86 +8,8 @@ import Footer from "../Components/footer"
 import SearchSidebar from "../Components/searchSidebar"
 import SearchResultCard from "../Components/searchResultCard"
 import AddProductModal from "../Components/addProductModal"
-import sofaImg from "../../assets/sofa.png"
-import chairImg from "../../assets/chair.png"
-import lightbulb from "../../assets/lightbulb.png"
-import lampImg from "../../assets/Lamp.png"
-import Hero from "../Components/hero"
-
-const initialProducts = [
-    {
-        id: 1,
-        name: "Designed Sofa",
-        price: 250.00,
-        image: sofaImg,
-        rating: 5,
-        reviews: 24,
-        category: "Sofa",
-    },
-    {
-        id: 2,
-        name: "Nova Chair",
-        price: 180.00,
-        image: chairImg,
-        rating: 5,
-        reviews: 18,
-        category: "Chair",
-    },
-    {
-        id: 3,
-        name: "Modern Hanging Lamp",
-        price: 95.00,
-        image: lightbulb,
-        rating: 4,
-        reviews: 12,
-        category: "Lamp",
-    },
-    {
-        id: 4,
-        name: "Premium Sofa Set",
-        price: 420.00,
-        image: sofaImg,
-        rating: 5,
-        reviews: 31,
-        category: "Sofa",
-    },
-    {
-        id: 5,
-        name: "Stylish Chair",
-        price: 150.00,
-        image: chairImg,
-        rating: 4,
-        reviews: 15,
-        category: "Chair",
-    },
-    {
-        id: 6,
-        name: "Modern Lamp",
-        price: 85.00,
-        image: lampImg,
-        rating: 5,
-        reviews: 22,
-        category: "Lamp",
-    },
-    {
-        id: 7,
-        name: "Urban Lux High Chair",
-        price: 2668.15,
-        image: chairImg,
-        rating: 5,
-        reviews: 8,
-        category: "Chair",
-    },
-    {
-        id: 8,
-        name: "Lumin Desk Lamp",
-        price: 1477.80,
-        image: lampImg,
-        rating: 5,
-        reviews: 14,
-        category: "Lamp",
-    },
-]
+import { useCart } from "../hooks/useCart"
+import { products as initialProducts } from "../data/products"
 
 const Search = () => {
     const [searchParams] = useSearchParams()
@@ -99,10 +21,15 @@ const Search = () => {
         category: "",
         priceRange: [0, 3000],
     })
+    const { addToCart } = useCart();
 
     const handleAddProduct = (newProduct) => {
         setProducts((prev) => [...prev, newProduct])
     }
+
+    const handleAddToCart = (product) => {
+        addToCart(product);
+    };
 
     const filteredProducts = useMemo(() => {
         return products.filter((product) => {
@@ -129,7 +56,6 @@ const Search = () => {
     return (
         <Box sx={{ bgcolor: "#FFFFFF", minHeight: "100vh" }}>
             <NavBar />
-            <Hero />
 
             {/* Main Content Area with Sidebar */}
             <Box

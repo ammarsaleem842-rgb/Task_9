@@ -1,7 +1,14 @@
-import { Box, Typography, Rating } from "@mui/material"
+import { Box, Typography, Rating, Button } from "@mui/material"
 import { Link } from "react-router-dom"
+import { useCart } from "../hooks/useCart"
 
 const SearchResultCard = ({ product }) => {
+    const { addToCart } = useCart()
+
+    const handleAddToCart = () => {
+        addToCart(product)
+    }
+
     return (
         <Box
             sx={{
@@ -69,10 +76,34 @@ const SearchResultCard = ({ product }) => {
                         fontSize: "16px",
                         fontWeight: 700,
                         color: "#B88E2F",
+                        mb: "12px",
                     }}
                 >
                     ${product.price.toFixed(2)}
                 </Typography>
+                <Button
+                    onClick={handleAddToCart}
+                    variant="contained"
+                    fullWidth
+                    sx={{
+                        bgcolor: "#000000",
+                        color: "#FFFFFF",
+                        fontFamily: "'Poppins', sans-serif",
+                        fontSize: "13px",
+                        fontWeight: 600,
+                        textTransform: "uppercase",
+                        borderRadius: "4px",
+                        letterSpacing: "0.5px",
+                        boxShadow: "none",
+                        py: "8px",
+                        "&:hover": {
+                            bgcolor: "#2F302C",
+                            boxShadow: "none",
+                        },
+                    }}
+                >
+                    Add to Cart
+                </Button>
             </Box>
         </Box>
     )

@@ -1,8 +1,10 @@
+import { useState } from "react";
 import {
     Box,
     Typography,
     TextField,
     Button,
+    Link,
 } from "@mui/material";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
@@ -41,24 +43,20 @@ const inputStyles = {
     },
 };
 
-const SignUpSchema = Yup.object().shape({
-    name: Yup.string().required("Name is required"),
+const SignInSchema = Yup.object().shape({
     email: Yup.string().email("Invalid email address").required("Email is required"),
-    phone: Yup.string().required("Phone number is required"),
-    password: Yup.string().min(6, "Password must be at least 6 characters").required("Password is required"),
-    confirmPassword: Yup.string()
-        .oneOf([Yup.ref("password"), null], "Passwords must match")
-        .required("Confirm password is required"),
+    password: Yup.string().required("Password is required"),
 });
 
-export default function SignUpTextFields() {
+const SignIn = () => {
     const navigate = useNavigate();
+    const [showPassword, setShowPassword] = useState(false);
 
-    const handleSignUp = (values, { setSubmitting }) => {
-        // Here you would typically send data to your backend
-        console.log("Sign up data:", values);
+    const handleSignIn = (values, { setSubmitting }) => {
+        // Here you would typically send data to your backend for authentication
+        console.log("Sign in data:", values);
         setSubmitting(false);
-        navigate("/signin");
+        navigate("/homepage");
     };
 
     return (
@@ -66,7 +64,7 @@ export default function SignUpTextFields() {
             sx={{
                 display: "grid",
                 gridTemplateColumns: { xs: "1fr", md: "1fr 1fr" },
-                minHeight: "680px",
+                minHeight: "100vh",
                 bgcolor: "#FFFFFF",
             }}
         >
@@ -92,10 +90,10 @@ export default function SignUpTextFields() {
                         textTransform: "uppercase",
                     }}
                 >
-                    Your Information
+                    Welcome Back
                 </Typography>
 
-                {/* Login Link */}
+                {/* Sign Up Link */}
                 <Typography
                     sx={{
                         fontFamily: "'Poppins', sans-serif",
@@ -104,10 +102,9 @@ export default function SignUpTextFields() {
                         mb: "48px",
                     }}
                 >
-                    You already have an account?{" "}
-                    <Box
-                        component="a"
-                        href="/signin"
+                    Don't have an account?{" "}
+                    <Link
+                        href="/signup"
                         sx={{
                             fontWeight: 600,
                             color: "#2F302C",
@@ -117,62 +114,41 @@ export default function SignUpTextFields() {
                             transition: "color 0.2s",
                         }}
                     >
-                        Sign in here
-                    </Box>
+                        Sign up here
+                    </Link>
                 </Typography>
 
                 {/* Form Fields */}
                 <Formik
                     initialValues={{
-                        name: "",
                         email: "",
-                        phone: "",
                         password: "",
-                        confirmPassword: "",
                     }}
-                    validationSchema={SignUpSchema}
-                    onSubmit={handleSignUp}
+                    validationSchema={SignInSchema}
+                    onSubmit={handleSignIn}
                 >
                     {({ errors, touched, isSubmitting }) => (
                         <Form>
                             <Box
                                 sx={{
-                                    display: "grid",
-                                    gridTemplateColumns: { xs: "1fr", sm: "1fr 1fr" },
-                                    columnGap: "32px",
-                                    rowGap: "40px",
+                                    display: "flex",
+                                    flexDirection: "column",
+                                    gap: "32px",
+                                    maxWidth: "480px",
                                 }}
                             >
-                                {/* Name */}
-                                <Box>
-                                    <Typography component="label" htmlFor="signup-name" sx={labelStyle}>
-                                        Your name
-                                    </Typography>
-                                    <Field
-                                        as={TextField}
-                                        id="signup-name"
-                                        name="name"
-                                        variant="standard"
-                                        placeholder="Enter your name"
-                                        fullWidth
-                                        sx={inputStyles}
-                                        error={touched.name && Boolean(errors.name)}
-                                        helperText={touched.name && errors.name}
-                                    />
-                                </Box>
-
                                 {/* Email */}
                                 <Box>
-                                    <Typography component="label" htmlFor="signup-email" sx={labelStyle}>
+                                    <Typography component="label" htmlFor="signin-email" sx={labelStyle}>
                                         E-mail
                                     </Typography>
                                     <Field
                                         as={TextField}
-                                        id="signup-email"
+                                        id="signin-email"
                                         name="email"
+                                        type="email"
                                         variant="standard"
                                         placeholder="Enter your email"
-                                        type="email"
                                         fullWidth
                                         sx={inputStyles}
                                         error={touched.email && Boolean(errors.email)}
@@ -180,36 +156,18 @@ export default function SignUpTextFields() {
                                     />
                                 </Box>
 
-                                {/* Phone - Full Width */}
-                                <Box sx={{ gridColumn: { sm: "1 / -1" } }}>
-                                    <Typography component="label" htmlFor="signup-phone" sx={labelStyle}>
-                                        Phone number
-                                    </Typography>
-                                    <Field
-                                        as={TextField}
-                                        id="signup-phone"
-                                        name="phone"
-                                        variant="standard"
-                                        placeholder="Enter your phone number"
-                                        fullWidth
-                                        sx={inputStyles}
-                                        error={touched.phone && Boolean(errors.phone)}
-                                        helperText={touched.phone && errors.phone}
-                                    />
-                                </Box>
-
                                 {/* Password */}
                                 <Box>
-                                    <Typography component="label" htmlFor="signup-password" sx={labelStyle}>
+                                    <Typography component="label" htmlFor="signin-password" sx={labelStyle}>
                                         Password
                                     </Typography>
                                     <Field
                                         as={TextField}
-                                        id="signup-password"
+                                        id="signin-password"
                                         name="password"
+                                        type={showPassword ? "text" : "password"}
                                         variant="standard"
-                                        placeholder="Enter password"
-                                        type="password"
+                                        placeholder="Enter your password"
                                         fullWidth
                                         sx={inputStyles}
                                         error={touched.password && Boolean(errors.password)}
@@ -217,53 +175,33 @@ export default function SignUpTextFields() {
                                     />
                                 </Box>
 
-                                {/* Reset Password */}
-                                <Box>
-                                    <Typography component="label" htmlFor="signup-reset-password" sx={labelStyle}>
-                                        Reset Password
-                                    </Typography>
-                                    <Field
-                                        as={TextField}
-                                        id="signup-reset-password"
-                                        name="confirmPassword"
-                                        variant="standard"
-                                        placeholder="Confirm password"
-                                        type="password"
-                                        fullWidth
-                                        sx={inputStyles}
-                                        error={touched.confirmPassword && Boolean(errors.confirmPassword)}
-                                        helperText={touched.confirmPassword && errors.confirmPassword}
-                                    />
-                                </Box>
-                            </Box>
-
-                            {/* Create Account Button */}
-                            <Box sx={{ mt: "56px" }}>
-                                <Button
-                                    type="submit"
-                                    variant="contained"
-                                    id="signup-submit-btn"
-                                    disabled={isSubmitting}
-                                    sx={{
-                                        width: { xs: "100%", sm: "240px" },
-                                        height: "56px",
-                                        bgcolor: "#000000",
-                                        color: "#FFFFFF",
-                                        fontFamily: "'Poppins', sans-serif",
-                                        fontSize: "14px",
-                                        fontWeight: 600,
-                                        textTransform: "uppercase",
-                                        borderRadius: "5px",
-                                        letterSpacing: "1px",
-                                        boxShadow: "none",
-                                        "&:hover": {
-                                            bgcolor: "#2F302C",
+                                {/* Sign In Button */}
+                                <Box sx={{ mt: "16px" }}>
+                                    <Button
+                                        type="submit"
+                                        variant="contained"
+                                        disabled={isSubmitting}
+                                        sx={{
+                                            width: { xs: "100%", sm: "240px" },
+                                            height: "56px",
+                                            bgcolor: "#000000",
+                                            color: "#FFFFFF",
+                                            fontFamily: "'Poppins', sans-serif",
+                                            fontSize: "14px",
+                                            fontWeight: 600,
+                                            textTransform: "uppercase",
+                                            borderRadius: "5px",
+                                            letterSpacing: "1px",
                                             boxShadow: "none",
-                                        },
-                                    }}
-                                >
-                                    {isSubmitting ? "Creating Account..." : "Create an account"}
-                                </Button>
+                                            "&:hover": {
+                                                bgcolor: "#2F302C",
+                                                boxShadow: "none",
+                                            },
+                                        }}
+                                    >
+                                        {isSubmitting ? "Signing In..." : "Sign In"}
+                                    </Button>
+                                </Box>
                             </Box>
                         </Form>
                     )}
@@ -292,10 +230,10 @@ export default function SignUpTextFields() {
                         maxWidth: "65%",
                     }}
                 >
-                    {/* HOT Badge */}
+                    {/* Welcome Badge */}
                     <Box
                         sx={{
-                            bgcolor: "#E97171",
+                            bgcolor: "#B88E2F",
                             color: "#FFFFFF",
                             fontSize: "12px",
                             fontWeight: 700,
@@ -308,7 +246,7 @@ export default function SignUpTextFields() {
                             letterSpacing: "2px",
                         }}
                     >
-                        HOT
+                        WELCOME
                     </Box>
 
                     {/* Promo Heading */}
@@ -322,10 +260,9 @@ export default function SignUpTextFields() {
                             textTransform: "uppercase",
                         }}
                     >
-                        Discount<br />
-                        25% For<br />
-                        New<br />
-                        Member
+                        Your Journey<br />
+                        Starts<br />
+                        Here
                     </Typography>
                 </Box>
 
@@ -345,7 +282,7 @@ export default function SignUpTextFields() {
                     <Box
                         component="img"
                         src={lampImg}
-                        alt="Promo Hanging Lamps"
+                        alt="Welcome"
                         sx={{
                             height: "100%",
                             width: "100%",
@@ -357,4 +294,6 @@ export default function SignUpTextFields() {
             </Box>
         </Box>
     );
-}
+};
+
+export default SignIn;
