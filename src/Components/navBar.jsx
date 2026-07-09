@@ -1,4 +1,4 @@
-import { Box, TextField, InputAdornment, Badge, IconButton } from "@mui/material"
+import { Box, TextField, InputAdornment, Badge, IconButton, Typography } from "@mui/material"
 import SearchIcon from "@mui/icons-material/Search";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import MenuIcon from "@mui/icons-material/Menu";
@@ -31,7 +31,7 @@ const NavBar = () => {
         <Box sx={{
             bgcolor: '#FFFFFF',
             py: { xs: 1.5, md: 0 },
-            px: { xs: 2, sm: 3, md: 4, lg: 6 },
+            px: "50px",
             boxShadow: { xs: '0 1px 3px rgba(0,0,0,0.08)', md: '0 1px 2px rgba(0,0,0,0.04)' },
             position: { xs: 'sticky', md: 'relative' },
             top: 0,
@@ -102,6 +102,36 @@ const NavBar = () => {
 
 
                 {/* Navigation Links */}
+                <TextField
+                    variant="standard"
+                    placeholder="Search..."
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    onKeyDown={handleSearchSubmit}
+                    slotProps={{
+                        input: {
+                            startAdornment: (
+                                <InputAdornment position="start">
+                                    <SearchIcon sx={{ color: "#666666", fontSize: "18px" }} />
+                                </InputAdornment>
+                            ),
+                        },
+                    }}
+                    sx={{
+                        width: "180px",
+                        "& .MuiInput-underline:before": {
+                            borderBottomColor: "#E0E0E0",
+                        },
+                        "& .MuiInputBase-input": {
+                            fontFamily: "'Poppins', sans-serif",
+                            fontSize: "13px",
+                            color: "#666666",
+                            "&::placeholder": {
+                                color: "#999999",
+                            },
+                        },
+                    }}
+                />
                 <Box>
                     <ul style={{
                         listStyle: 'none',
@@ -138,36 +168,7 @@ const NavBar = () => {
 
                 {/* Icons */}
                 <Box sx={{ display: 'flex', gap: '20px', alignItems: 'center' }}>
-                    <TextField
-                        variant="standard"
-                        placeholder="Search..."
-                        value={searchQuery}
-                        onChange={(e) => setSearchQuery(e.target.value)}
-                        onKeyDown={handleSearchSubmit}
-                        slotProps={{
-                            input: {
-                                startAdornment: (
-                                    <InputAdornment position="start">
-                                        <SearchIcon sx={{ color: "#666666", fontSize: "18px" }} />
-                                    </InputAdornment>
-                                ),
-                            },
-                        }}
-                        sx={{
-                            width: "180px",
-                            "& .MuiInput-underline:before": {
-                                borderBottomColor: "#E0E0E0",
-                            },
-                            "& .MuiInputBase-input": {
-                                fontFamily: "'Poppins', sans-serif",
-                                fontSize: "13px",
-                                color: "#666666",
-                                "&::placeholder": {
-                                    color: "#999999",
-                                },
-                            },
-                        }}
-                    />
+
                     <Box sx={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
                         <Link
                             to="/homepage"
@@ -203,7 +204,7 @@ const NavBar = () => {
                                     alignItems: 'center',
                                 }}
                             >
-                                <ShoppingCartIcon sx={{ fontSize: "20px" }} />
+                                <Typography sx={{ fontFamily: "'Poppins', sans-serif", fontSize: "13px", fontWeight: 500 }}>Cart</Typography>
                             </Link>
                         </Badge>
                     </Box>
